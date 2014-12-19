@@ -1,36 +1,41 @@
 module Spree
   Payment.class_eval do
     attr_accessor :admin_created
-    
+
     def admin_created?
       !!admin_created
     end
-    
-    state_machine :initial => 'checkout' do
+
+    state_machine initial: :checkout do
       # With card payments, happens before purchase or authorization happens
       event :started_processing do
-        transition :from => ['checkout', 'pending', 'completed', 'processing'], :to => 'processing'
+        transition from: [:checkout, :pending, :completed, :processing],
+          to: :processing
       end
       # When processing during checkout fails
       event :failure do
-        transition :from => ['processing', 'pending'], :to => 'failed'
+        transition from: [:processing, :pending],
+          to: :failed
       end
       # With card payments this represents authorizing the payment
       event :pend do
-        transition :from => ['checkout', 'processing'], :to => 'pending'
+        transition from: [:checkout, :processing],
+          to: :pending
       end
       # With card payments this represents completing a purchase or capture transaction
       event :complete do
-        transition :from => ['processing', 'pending', 'checkout'], :to => 'completed'
+        transition from: [:processing, :pending, :checkout],
+          to: :completed
       end
       event :void do
-        transition :from => ['pending', 'completed', 'checkout'], :to => 'void'
+        transition from: [:pending, :completed, :checkout],
+          to: :void
       end
     end
-    
+
     def handle_response(response, success_state, failure_state, redirect_state = :started_processing)
       record_response(response)
-      
+
       if response.success?
         self.response_code = response.authorization
         self.avs_response = response.avs_result['code']
@@ -45,11 +50,11 @@ module Spree
         gateway_error(response)
       end
     end
-    
+
     private
-    
+
     alias_method :original_gateway_options, :gateway_options
-    
+
     def gateway_options
       options = original_gateway_options
       options.merge!({ :order_token => order.token,
