@@ -6,20 +6,20 @@ Add support for PAYONE payment methods and gateway as a payment methods.
 
 #### 1. Add the following to your Gemfile
 
-```bash
-gem 'spree_payone', :git => 'git://github.com/PAYONE/spree.git' 
+```ruby
+gem 'spree_payone', github: 'magiclabs/spree_payone'
 ```
 
-#### 2. Run 
+#### 2. Run
 
 ```bash
 $ bundle install
 ```
 
-#### 3. To copy and apply migrations, inject JavaScript and CSS includes run: 
+#### 3. To copy and apply migrations, inject JavaScript and CSS includes run:
 
 ```bash
-$ rails g spree_payone:install
+$ bin/rails g spree_payone:install
 ```
 
 ## Configuring
@@ -28,4 +28,8 @@ After the installation visit 'PAYONE Documentation' under the 'Configuration' ta
 
 ## Dependencies
 
-* [Spree](https://github.com/spree/spree) (spree_core 1.2.x)
+* [Spree](https://github.com/spree/spree) (spree_core 2.x)
+
+## License
+
+* BSD

@@ -1,21 +1,20 @@
-# encoding: UTF-8
 Gem::Specification.new do |s|
-  s.platform    = Gem::Platform::RUBY
-  s.name        = 'spree_payone'
-  s.version     = '1.2.0'
-  s.summary     = 'Spree Extenstion for PAYONE'
-  s.description = 'Payemnt gateway and methods for PAYONE FinanceGate Server for Spree'
-  s.required_ruby_version = '>= 1.8.7'
+  s.name                  = 'spree_payone'
+  s.version               = '2.0.0.beta'
+  s.platform              = Gem::Platform::RUBY
+  s.required_ruby_version = '>= 2.0.0'
+  s.license               = 'BSD'
+  s.summary               = 'Spree Extension for PAYONE'
+  s.description           = 'Payment gateway and methods for PAYONE FinanceGate Server for Spree 2.x'
 
-  s.authors     = ['Maciej Gowin', 'Florian Salis']
-  s.email       = 'maciej.gowin@phocus.pl'
+  s.authors     = ['Thomas von Deyen', 'Maciej Gowin', 'Florian Salis']
+  s.email       = 'tvd@magiclabs.de'
 
   s.files         = `git ls-files`.split("\n")
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
-  s.require_path = 'lib'
-  s.requirements << 'none'
+  s.require_path  = 'lib'
 
-  s.add_dependency('spree_core',  '~> 1.2.0')
+  s.add_dependency('spree_core',  '>= 2.0.0')
+
   s.add_development_dependency 'rspec-rails'
-
 end
