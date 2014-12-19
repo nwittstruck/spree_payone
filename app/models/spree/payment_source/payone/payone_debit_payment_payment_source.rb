@@ -4,25 +4,22 @@ module Spree
     module PAYONE
       class PayoneDebitPaymentPaymentSource < ActiveRecord::Base
         has_many :payments, :as => :source
-        
-        attr_accessible :first_name, :last_name, :bank_country, :bank_account,
-                        :bank_code, :bank_account_holder
-        
+
         # Lists available actions.
         def actions
           %w{capture void credit}
         end
-        
+
         # Indicates whether its possible to capture the payment.
         def can_capture?(payment)
           payment.state == 'pending' || payment.state == 'checkout'
         end
-        
+
         # Indicates whether its possible to void the payment.
         def can_void?(payment)
           payment.state != 'void' && payment.state != 'completed' && payment.state != 'failed' && payment.state != 'processing'
         end
-        
+
         # Indicates whether its possible to credit the payment.
         def can_credit?(payment)
           return false unless payment.state == 'completed'
