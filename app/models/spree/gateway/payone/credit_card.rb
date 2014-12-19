@@ -52,12 +52,6 @@ module Spree
       end
     end
 
-    # Workaround for disabling server option
-    # Disable standard :server preference from gateway
-    # Add :server option which depends on :test_mode setting
-    alias_method :original_preferences, :preferences
-    alias_method :original_options, :options
-
     # Returns PAYONE gateway preferences (disable :server preference).
     def preferences
       preferences_map = {}
@@ -68,6 +62,10 @@ module Spree
       end
       preferences_map
     end
+    # Workaround for disabling server option
+    # Disable standard :server preference from gateway
+    # Add :server option which depends on :test_mode setting
+    alias_method :original_preferences, :preferences
 
     # Returns PAYONE gateway options. Internally sets :server which
     # depends on :test_mode.
@@ -79,6 +77,7 @@ module Spree
       end
       options_map
     end
+    alias_method :original_options, :options
 
     # Redefines method_type which allows to load correct partial template
     # for gateway (does not load default _gateway.html.erb template).
