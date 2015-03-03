@@ -2,13 +2,13 @@
 module Spree::PAYONE
   module Proxy
     class Request < ParameterContainer
-      
+
       # PAYONE FinanceGate Server API Url
       @@API_URL = 'https://api.pay1.de/post-gateway/'
-      
+
       # Defines parameters that should be hidden (i.e. not visible when logging)
       @@HIDDEN_PARAMETERS = [:cardpan, :cardcvc2, :bankaccount, :bankcode]
-      
+
       # Merchant account ID
       parameter_accessor :mid
       # Payment portal ID
@@ -22,45 +22,45 @@ module Spree::PAYONE
       parameter_accessor :request
       # ISO-8859-1 (default), UTF-8
       parameter_accessor :encoding
-      
+
       # Sub account ID
       parameter_accessor :aid
-      
+
       # Payment process ID (PAYONE)
       parameter_accessor :txid
-      
+
       # Clearing type
       # elv: Debit payment, cc: Credit card, vor: Prepayment/Cash In Advance, rec: Invoice
       # cod: Cash on delivery, sb: Online Bank Transfer, wlt: e-wallet
-      parameter_accessor :clearingtype    
+      parameter_accessor :clearingtype
       # Merchant reference number for the payment process (permitted symbols: 0-9, a-z, A-Z, .,-,_,/)
       parameter_accessor :reference
       # Total amount (in smallest currency unit! e.g. cent)
-      parameter_accessor :amount    
+      parameter_accessor :amount
       # Currency (ISO 4217)
       parameter_accessor :currency
-      
+
       # URL "payment successful" (only if not provided in the PMI)
       parameter_accessor :successurl
       # URL "faulty payment" (only if not provided in the PMI)
       parameter_accessor :errorurl
       # URL "Back" or "Cancel" (only if not provided in the PMI)
       parameter_accessor :backurl
-      
+
       # Merchant's customer ID (permitted symbols: 0-9, a-z, A-Z, .,-,_,/)
       parameter_accessor :customerid
       # First name
       parameter_accessor :firstname
       # Surname
       parameter_accessor :lastname
-      
+
       # Email address
       parameter_accessor :email
       # Telephone numner
       parameter_accessor :telephonenumber
       # Customer's IP address (123.123.123.123)
       parameter_accessor :ip
-      
+
       # Street number and name
       parameter_accessor :street
       # Address line 2 (e.g. "7th floor", "c/o Maier")
@@ -73,7 +73,7 @@ module Spree::PAYONE
       parameter_accessor :country
       # State (ISO 3166 subdivisions) (only if country=US or CA)
       parameter_accessor :state
-      
+
       # First name
       parameter_accessor :shipping_firstname
       # Surname
@@ -88,15 +88,15 @@ module Spree::PAYONE
       parameter_accessor :shipping_country
       # State (ISO 3166 subdivisions) (only if country=US or CA)
       parameter_accessor :shipping_state
-      
+
       # Address check type
       # BA: Addresscheck Basic, PE: Addresscheck Person, NO: Do not carry out address check
       parameter_accessor :addresschecktype
-      
+
       # Consumer score type
       # IH: Infoscore (hard criteria), IA: Infoscore (all criteria), IB: Infoscore (all criteria + bonuses score)
       parameter_accessor :consumerscoretype
-      
+
       # Card number
       parameter_accessor :cardpan
       # Card type
@@ -115,7 +115,7 @@ module Spree::PAYONE
       # no: Card data is not stored
       # yes: Card data is stored, a pseudo card number is returned
       parameter_accessor :storecarddata
-      
+
       # Online bank transfer type
       # PNT: instant money transfer (DE,AT,CH), GPY: giropay (DE)
       # EPS: eps – online transfer (AT), PFF: PostFinance E-Finance (CH)
@@ -127,29 +127,33 @@ module Spree::PAYONE
       parameter_accessor :bankaccount
       # Sort code (giropay & instant money transfer only)
       parameter_accessor :bankcode
+      # Iban
+      parameter_accessor :iban
+      # Bic
+      parameter_accessor :bic
       # Bank Group (eps & iDeal only)
       parameter_accessor :bankgrouptype
-      
+
       # Account holder
       parameter_accessor :bankaccountholder
-      
+
       # Wallet provider
       # PPE: PayPal Express
       parameter_accessor :wallettype
-      
+
       # Shipping company
       # DHL: DHL, Germany
       # BRT: Bartolini, Italy
       parameter_accessor :shippingprovider
-      
+
       # Language indicator (ISO 639)
       # Note: this parameter is used to set language of messages returned by PAYONE PMI
       parameter_accessor :language
-      
+
       # Sequence number for this transaction within the payment process (1..n)
       # e.g. authorisation: 0, debit: 1 e.g. preauthorisation: 0, capture: 1, debit: 2
       parameter_accessor :sequencenumber
-      
+
       # Specific values for :request parameter
       parameter_value_accessor :preauthorization_request, :request, 'preauthorization'
       parameter_value_accessor :authorization_request, :request, 'authorization'
@@ -159,15 +163,15 @@ module Spree::PAYONE
       parameter_value_accessor :addresscheck_request, :request, 'addresscheck'
       parameter_value_accessor :consumerscore_request, :request, 'consumerscore'
       parameter_value_accessor :creditcardcheck_request, :request, 'creditcardcheck'
-      
+
       # Specific values for :mode parameter
       parameter_value_accessor :test_mode, :mode, 'test'
       parameter_value_accessor :live_mode, :mode, 'live'
-      
+
       # Specific values for :encoding parameter
       parameter_value_accessor :iso88591_encoding, :encoding, 'ISO-8859-1'
       parameter_value_accessor :utf8_encoding, :encoding, 'UTF-8'
-      
+
       # Specific values for :clearingtype parameter
       parameter_value_accessor :credit_card_clearingtype, :clearingtype, 'cc'
       parameter_value_accessor :online_bank_transfer_clearingtype, :clearingtype, 'sb'
@@ -176,7 +180,7 @@ module Spree::PAYONE
       parameter_value_accessor :cash_on_delivery_clearingtype, :clearingtype, 'cod'
       parameter_value_accessor :cash_in_advance_clearingtype, :clearingtype, 'vor'
       parameter_value_accessor :invoice_clearingtype, :clearingtype, 'rec'
-      
+
       # Specific values for :cardtype parameter
       parameter_value_accessor :visa_cardtype, :cardtype, ::Spree::PAYONE::Utils::CreditCardType::VISA
       parameter_value_accessor :mastercard_cardtype, :cardtype, ::Spree::PAYONE::Utils::CreditCardType::MASTERCARD
@@ -186,32 +190,32 @@ module Spree::PAYONE
       parameter_value_accessor :maestro_international_cardtype, :cardtype, ::Spree::PAYONE::Utils::CreditCardType::MAESTRO_INTERNATIONAL
       parameter_value_accessor :discover_cardtype, :cardtype, ::Spree::PAYONE::Utils::CreditCardType::DISCOVER
       parameter_value_accessor :carte_bleue_cardtype, :cardtype, ::Spree::PAYONE::Utils::CreditCardType::CARTE_BLEUE
-      
+
       # Specific values for :addresschecktype parameter
       parameter_value_accessor :basic_addresschecktype, :addresschecktype, ::Spree::PAYONE::Utils::AddressCheckType::BASIC
       parameter_value_accessor :person_addresschecktype, :addresschecktype, ::Spree::PAYONE::Utils::AddressCheckType::PERSON
       parameter_value_accessor :no_addresschecktype, :addresschecktype, ::Spree::PAYONE::Utils::AddressCheckType::NO
-      
+
       # Specific values for :consumerscoretype parameter
       parameter_value_accessor :ih_consumerscoretype, :consumerscoretype, ::Spree::PAYONE::Utils::ConsumerScoreType::IH
       parameter_value_accessor :ia_consumerscoretype, :consumerscoretype, ::Spree::PAYONE::Utils::ConsumerScoreType::IA
       parameter_value_accessor :ib_consumerscoretype, :consumerscoretype, ::Spree::PAYONE::Utils::ConsumerScoreType::IB
-      
+
       # Specific values for :storecarddata parameter
       parameter_value_accessor :yes_storecarddata, :storecarddata, ::Spree::PAYONE::Utils::StoreCardData::YES
       parameter_value_accessor :no_storecarddata, :storecarddata, ::Spree::PAYONE::Utils::StoreCardData::NO
-      
+
       # Sets initial data.
       def initialize
         super()
         self.test_mode
       end
-      
+
       # Returns PAYONE FinanceGate Server API Url.
       def api_url
         @@API_URL
       end
-      
+
       # Sets key value or md5 value.
       def key=(value, md5_encode = true)
         if md5_encode && value
@@ -220,7 +224,7 @@ module Spree::PAYONE
           self.add_parameter(:key, value)
         end
       end
-      
+
       # Send the PAYONE request.
       def send
         post_params = {}
@@ -239,12 +243,12 @@ module Spree::PAYONE
             post_params[key.to_s] = value.to_s
           end
         }
-        
+
         url = URI.parse(@@API_URL)
         http_request = Net::HTTP::Post.new(url.path)
         http_request.form_data = post_params
         http_request.basic_auth url.user, url.password if url.user
-        
+
         response = Spree::PAYONE::Proxy::Response.new
         connection = Net::HTTP.new(url.host, url.port)
         load_ca_file connection
@@ -253,10 +257,10 @@ module Spree::PAYONE
           http_response = http.request(http_request)
           response.response_body= http_response.body
         }
-        
+
         response
       end
-      
+
       def to_s
         result = ''
         @parameters.each do |key, value|
@@ -267,7 +271,7 @@ module Spree::PAYONE
         end
         result.strip
       end
-      
+
       # Sets Certificate Authority file used by PAYONE.
       #
       # The same functionality may be achived globally using below code:

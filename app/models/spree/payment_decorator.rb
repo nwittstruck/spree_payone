@@ -57,7 +57,7 @@ module Spree
 
     def gateway_options
       options = original_gateway_options
-      options.merge!({ :order_token => order.token,
+      options.merge!({ :order_token => order.guest_token,
                        :payment_id => self.id,
                        :admin_created => self.admin_created })
       options.merge!({ :billing_address =>
