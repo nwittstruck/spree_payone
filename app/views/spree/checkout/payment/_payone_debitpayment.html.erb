@@ -15,7 +15,7 @@
 
 <% if is_de or is_at or is_nl %>
 <p id="bank_account_container_<%= payment_method.id %>" class="field" data-hook="iban">
-  <%= label_tag nil, t(:bank_account) %><br />
+  <%= label_tag nil, t(:iban) %><br />
   <%= text_field_tag "#{param_prefix}[iban]", '', options_hash.merge(:id => 'iban_' + payment_method.id.to_s, :class => 'required') %>
   <span class="req">*</span>
 </p>
@@ -23,7 +23,7 @@
 
 <% if is_de or is_at %>
 <p id="bank_code_container_<%= payment_method.id %>" class="field" data-hook="bic">
-  <%= label_tag nil, t(:bank_code) %><br />
+  <%= label_tag nil, t(:bic) %><br />
   <%= text_field_tag "#{param_prefix}[bic]", '', options_hash.merge(:id => 'bic_' + payment_method.id.to_s, :class => 'required') %>
   <span class="req">*</span>
 </p>

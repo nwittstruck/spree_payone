@@ -1,27 +1,6 @@
 module Spree
   CreditCard.class_eval do
 
-    # Returns card holder.
-    def card_holder
-      # Internally use first and last name fields to store card holder (workaround)
-      self.first_name.to_s.empty? ?
-        self.last_name.to_s :
-        (self.last_name.to_s.empty? ?
-          self.first_name.to_s : self.first_name.to_s + ' ' + self.last_name.to_s)
-    end
-
-    # Sets card holder.
-    def card_holder= value
-      # Internally use first and last name fields to store card holder (workaround)
-      values = value.to_s.split(' ')
-      if values.size > 1
-        self.first_name= values[0]
-        self.last_name= values[1]
-      elsif values.size == 1
-        self.last_name= values[0]
-      end
-    end
-
     # Indicates whether its possible to void the payment.
     def can_void?(payment)
       if payment.payment_method.is_a?(Spree::Gateway::PAYONE::CreditCard)

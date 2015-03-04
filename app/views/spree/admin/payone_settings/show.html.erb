@@ -1,4 +1,4 @@
-<%= render :partial => 'spree/admin/shared/configuration_menu' %>
+<%= render :partial => 'spree/admin/shared/sub_menu/configuration' %>
 
 <h1><%= t(:payone_settings) %></h1>
 
@@ -14,7 +14,7 @@
     <td><%= payone_settings_preference_visible_value(Spree::Config[key], options.merge!(:type => type)) %></td>
   </tr>
   <% end %>
-  
+
   <tr>
     <th colspan="2" style="font-size: 150%"><%= t(:redirect_url_preferences) %></th>
   </tr>
@@ -25,7 +25,7 @@
     <td><%= payone_settings_preference_visible_value(Spree::Config[key], options.merge!(:type => type)) %></td>
   </tr>
   <% end %>
-  
+
   <tr>
     <th colspan="2" style="font-size: 150%"><%= t(:logging_preferences) %></th>
   </tr>
@@ -36,7 +36,7 @@
     <td><%= payone_settings_preference_visible_value(Spree::Config[key], options.merge!(:type => type)) %></td>
   </tr>
   <% end %>
-  
+
   <tr>
     <th colspan="2" style="font-size: 150%"><%= t(:validation_preferences) %></th>
   </tr>

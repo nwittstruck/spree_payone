@@ -1,9 +1,9 @@
-<%= render :partial => 'spree/admin/shared/configuration_menu' %>
+<%= render :partial => 'spree/admin/shared/sub_menu/configuration' %>
 
 <h1><%= t(:edit_payone_settings) %></h1>
 
 <%= form_tag admin_payone_settings_path, :method => :put do %>
-  
+
   <fieldset id="connection-preferences" data-hook>
   <h2><%= t(:connection_preferences) %></h2>
   <% @connection_preferences.each do |key, options|
@@ -12,7 +12,7 @@
       <%= payone_settings_preference_field_tag(key, Spree::Config[key], options.merge!(:type => type)) %>
   <% end %>
   </fieldset>
-  
+
   <fieldset id="redirect-url-preferences" data-hook>
   <h2><%= t(:redirect_url_preferences) %></h2>
   <% @redirect_url_preferences.each do |key, options|
@@ -21,7 +21,7 @@
       <%= payone_settings_preference_field_tag(key, Spree::Config[key], options.merge!(:type => type)) %>
   <% end %>
   </fieldset>
-  
+
   <fieldset id="logging-preferences" data-hook>
   <h2><%= t(:logging_preferences) %></h2>
   <% @logging_preferences.each do |key, options|
@@ -30,7 +30,7 @@
       <%= payone_settings_preference_field_tag(key, Spree::Config[key], options.merge!(:type => type)) %>
   <% end %>
   </fieldset>
-  
+
   <fieldset id="billing-address-validation-preferences" data-hook>
   <h2><%= t(:billing_address_validation_preferences) %></h2>
   <%  key = :payone_billing_address_validation_type
@@ -50,7 +50,7 @@
           :address_validation_preferences => @address_validation_preferences
         }) %>
   </fieldset>
-  
+
   <fieldset id="shipping-address-validation-preferences" data-hook>
   <h2><%= t(:shipping_address_validation_preferences) %></h2>
   <%  key = :payone_shipping_address_validation_type
@@ -70,7 +70,7 @@
           :address_validation_preferences => @address_validation_preferences
         }) %>
   </fieldset>
-  
+
   <fieldset id="address-check-validation-preferences" data-hook>
   <h2><%= t(:address_check_validation_preferences) %></h2>
   <% @address_check_validation_preferences.each do |key, options|
@@ -79,7 +79,7 @@
       <%= payone_settings_preference_field_tag(key, Spree::Config[key], options.merge!(:type => type)) %>
   <% end %>
   </fieldset>
-  
+
   <fieldset id="consumer-score-validation-preferences" data-hook>
   <h2><%= t(:consumer_score_validation_preferences) %></h2>
   <% @consumer_score_validation_preferences.each do |key, options|
@@ -88,7 +88,7 @@
       <%= payone_settings_preference_field_tag(key, Spree::Config[key], options.merge!(:type => type)) %>
   <% end %>
   </fieldset>
-  
+
   <p class="form-buttons" data-hook="buttons">
     <%= button t(:update) %>
     <%= t(:or) %> <%= link_to t(:cancel), admin_payone_settings_url %>
