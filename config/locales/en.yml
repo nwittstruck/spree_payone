@@ -208,6 +208,7 @@ en:
   payment_processing_canceled: "Payment could not be processed because it has been canceled"
   payment_method_not_available_for_country: "Selected payment method is not available for your country (%{country_code})"
   details: "Details"
+  whats_this: "What's this?"
 
   # Translations for errors
   errors:

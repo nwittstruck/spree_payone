@@ -85,7 +85,7 @@ de:
 
   # Translations for gateway/payment method source field names
   shipping_provider: "Lieferant"
-  card_number: "Kartennumber"
+  card_number: "Kartennummer"
   expiration: "Verfallsdatum"
   card_code: "Sicherheitscode"
   card_type: "Kartentyp"
@@ -208,6 +208,7 @@ de:
   payment_processing_canceled: "Bezahlung konnte nicht abgeschlossen werden da der Vorgang abgebrochen wurde"
   payment_method_not_available_for_country: "Die ausgewählte Bezahlmethode ist für dieses Land nicht verfügbar (%{country_code})"
   details: "Details"
+  whats_this: "Was ist das?"
 
   # Translations for errors
   errors:
