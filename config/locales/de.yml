@@ -1,5 +1,6 @@
 de:
   payone:
+    docs: "PAYONE Dokumentation"
     log: "PAYONE Übertragungsprotokoll"
     logs: "PAYONE Übertragungsprotokolle"
     log_level: "Level"
@@ -30,10 +31,6 @@ de:
   listing_payone_logs: "Alle PAYONE Übertragungsprotokolle"
   clear_payone_logs: "Alle löschen"
   payone_log_is_not_found: "PAYONE Log wurde nicht gefunden"
-
-  # Translations for /admin/payone_docs pages
-  payone_docs: "PAYONE Dokumentation"
-  payone_docs_description: "Dokumentation für die Schnittstelle zwischen Spree und PAYONE."
 
   # Translation for preferences (analogue to preference names)
   payone_merchant_id: "PAYONE Merchant-ID"

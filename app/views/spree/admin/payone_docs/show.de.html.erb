@@ -1,0 +1,189 @@
+<% content_for :page_title do %>
+  <%= t(:docs, scope: 'payone') %>
+<% end %>
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="nav nav-pills" id="payone_docs_navigation">
+      <li role="presentation" class="active"><a href="#einstellungen">Einstellungen</a></li>
+      <li role="presentation"><a href="#bezahlmethoden">Bezahlmethoden</a></li>
+      <li role="presentation"><a href="#adressvalidierung">Adressvalidierung</a></li>
+      <li role="presentation"><a href="#ueberzahlungen">Überzahlungen</a></li>
+      <li role="presentation"><a href="#uebertragungsprotokolle">Übertragungsprotokolle</a></li>
+    </ul>
+  </div>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <a name="einstellungen"></a>
+    <h3 class="panel-title">PAYONE Einstellungen</h3>
+  </div>
+  <div class="panel-body">
+    <p>
+      Unter dem Punkt <%= link_to "PAYONE Einstellungen", spree.admin_payone_settings_path %> müssen Sie die Daten Ihres PAYONE-Accounts hinterlegen Die Angaben zu "PAYONE Merchant-ID", "PAYONE Portal-ID", "PAYONE Key" und "PAYONE Sub-Account ID" finden Sie in Ihrem PAYONE-Account unter <a href="https://pmi.pay1.de/" target="_blank">https://pmi.pay1.de/</a>.
+    </p>
+    <p>
+      Rufen Sie dort das Menü: <i>Konfiguration &gt; Zahlungsportale</i> auf. Wählen Sie mit [edit] ihr Zahlungsportal aus. Im Reiter API-Parameter finden Sie alle notwendigen Parameter aufgelistet.
+    </p>
+    <p>
+      Stellen Sie im Reiter <i>Erweitert</i> die Transaktionsstatus-URL ein (<i>http.//ihr-shop.de</i>). Ist bei den einzelnen Bezahlmethoden die checkbox "Globale Einstellungen benuten" aktiviert werden die hier gesetzten werte übernommen.
+    </p>
+    <p>
+      Sollten Sie für eine bestimmte Bezahlmethode einen anderen Account haben, können Sie die Checkbox deaktivieren und die Angaben dort hinterlegen.
+    </p>
+    <p>
+      Wenn Sie den Testmodus aktivieren, werden nur die Testdaten von PAYONE angenommen. Diese Einstellung ist lediglich zum Überprüfen der Einstellungen und des Gesamtprozesses gedacht.
+    </p>
+  </div>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <a name="bezahlmethoden"></a>
+    <h3 class="panel-title">PAYONE Bezahlmethoden</h3>
+  </div>
+  <div class="panel-body">
+    <p>
+      Um über die Schnittstelle zu PAYONE Verkäufe abwickeln zu können, stehen Ihnen unter "Konfiguration -&gt; Zahlungsmethoden"  (Configuration &gt; Payment Methods) folgende Methoden zur Verfügung:
+    </p>
+    <ol>
+      <li><a href="#credit">Kreditkarte (Spree::Gateway::PAYONE::CreditCard)</a></li>
+      <li><a href="#advance">Vorkasse (Spree::PaymentMethod::PAYONE::CashInAdvance)</a></li>
+      <li><a href="#delivery">Per Nachname (Spree::PaymentMethod::PAYONE::CashOnDelivery)</a></li>
+      <li><a href="#online">Online Überweisung (Spree::PaymentMethod::PAYONE::OnlineBankTransfer)</a></li>
+      <li><a href="#debit">Kontobasierte Zahlungsarten (Spree::PaymentMethod::PAYONE::DebitPayment)</a></li>
+      <li><a href="#ewallet">E-Wallet (Spree::PaymentMethod::PAYONE::EWallet)</a></li>
+      <li><a href="#invoice">Rechnung (Spree::PaymentMethod::PAYONE::Invoice)</a></li>
+    </ol>
+
+    <a name="credit"></a>
+    <strong>1. Kreditkarte (PAYONE::CreditCard)</strong>
+    <p>
+      Mit dieser Methode können verschiedene Kreditkartenarten angeboten werden. Um mehrere Arten gleichzeitig anzubieten, legen Sie die Methode bitte mehrfach mit unterschiedlichen Einstellungen an.
+      In dem Feld "Credit Card Type" können Sie bestimmen, welcher Kartentyp aktzeptiert werden soll.
+    </p>
+    <ul>
+      <li>Visa Card: V</li>
+      <li>MasterCard: M</li>
+      <li>Amex: A</li>
+      <li>American Diners: D</li>
+      <li>JCB: J</li>
+      <li>Maestro Int.: O</li>
+      <li>Discover: C</li>
+      <li>Carte Bleue: B</li>
+    </ul>
+    <p>
+      Für MasterCard, Visa und JCB sind 3D-Secure-Karten automatisch mit abgedeckt.
+    </p>
+
+    <a name="advance"></a>
+    <strong>2. Vorkasse (PAYONE::CashInAdvance)</strong>
+    <p></p>
+
+    <a name="delivery"></a>
+    <strong>3. Per Nachname (PAYONE::CashOnDelivery)</strong>
+    <p>
+      Diese Bezahlmethode ist an den Versand gebunden. Um Sie benutzen zu können müssen Sie die Ware mit folgenden Dienstleistern versenden:
+    </p>
+    <ul>
+      <li>DHL (DHL) für Deutschland</li>
+      <li>BRT (Bartolini) für Italien</li>
+    </ul>
+
+    <a name="online"></a>
+    <strong>4. Online Überweisung (PAYONE::OnlineBankTransfer)</strong>
+    <p>
+      Mit dieser Methode können verschiedene Anbieter für Onlineüberweisungen angeboten werden. Um mehrere Arten gleichzeitig anzubieten, legen Sie die   Methode bitte mehrfach mit unterschiedlichen Einstellungen an.
+      In dem Feld "Bank" können Sie bestimmen, welcher Kartentyp aktzeptiert werden soll.
+    </p>
+    <ul>
+      <li>Giropay (DE): GPY</li>
+      <li>Sofortüberweisung (DE, AT, CH): PNT</li>
+      <li>PostFinance E-Finance (CH): PFF</li>
+      <li>eps - electronic payment standard (AT): EPS</li>
+      <li>PostFinance Card (CH): PFC</li>
+      <li>iDeal (NL): IDL</li>
+    </ul>
+    <p>
+      Die Länderkürzel in Klammern geben an in welchen Regionen diesen Kartentypen unterstützen.
+    </p>
+
+    <a name="debit"></a>
+    <strong>5. Kontobasierte Zahlungsarten (PAYONE::DebitPayment)</strong>
+    <p>
+      Elektronisches Lastschriftverfahren über IBAN und BIC des Kunden.
+    </p>
+
+    <a name="ewallet"></a>
+    <strong>6. E-Wallet (PAYONE::EWallet)</strong>
+    <ul>
+      <li>PayPal: PPE</li>
+    </ul>
+
+    <a name="invoice"></a>
+    <strong>7. Rechnung (Spree::PaymentMethod::PAYONE::Invoice)</strong>
+    <p></p>
+  </div>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <a name="adressvalidierung"></a>
+    <h3 class="panel-title">PAYONE Adressvalidierung</h3>
+  </div>
+  <div class="panel-body">
+    <p>
+      Um die Adressvalidierung von Payone zu verwenden, setzen Sie bitte die Einstellungen unter dem Menüpunkt <%= link_to "PAYONE Einstellungen", spree.admin_payone_settings_path %>.
+    </p>
+    <p>
+      Es wird ein Wert des Ampelsystems zurückgegeben - Grün, Gelb, Rot - wobei Grün eine hohe und Rot eine niedrige Bonität darstellt.
+    </p>
+    <p>
+      Die Einstellung Person-Check ist nur für Deutschland verfügbar. Es können sowohl die Rechnungsadresse, wie die Lieferadresse geprüft werden. Werden beide Adressen geprüft, greifen die Einstellungen für die niedrigere Bonität.
+    </p>
+    <p>
+      Als Einstellungsmöglichkeiten stehen Ihnen die Parameter Mindestbetrag und Maximalbetrag zur Verfügung. Der Mindestbetrag gibt an, ab welchem Warenwert die Restriktionen greifen sollen. Der maximal-Wert gibt an, bis zu welchem Einkaufswert eine Bestellung zugelassen werden soll.
+    </p>
+    <p>
+      Des weiteren können Sie einstellen, welche Bezahlmethoden für die entsprechende Gruppe zur Verfügung stehen soll.
+    </p>
+  </div>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <a name="ueberzahlungen"></a>
+    <h3 class="panel-title">Überzahlungen zurück überweisen</h3>
+  </div>
+  <div class="panel-body">
+    <p>
+      Bei den Bezahlmethoden Lastschrift, Sofort-Überweisung, giropay, Rechnung, Vorkasse, Nachnahme und PayPal kann das Geld über die PAYONE-Schnittstelle zurückgebucht werden, wenn der Status der Bezahlung auf "Betrag schuldig" (credit owed) steht. der Button "zurück überweisen" (credit) bucht den überzahlten Betrag über die zugehörige Bezahlmethode auf das Konto des Kunden zurück.
+    </p>
+  </div>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <a name="uebertragungsprotokolle"></a>
+    <h3 class="panel-title">PAYONE Übertragungsprotokolle</h3>
+  </div>
+  <div class="panel-body">
+    <p>
+      Unter dem Menüpunkt <%= link_to "Übertragungsprotokolle", spree.admin_payone_logs_path %> finden Sie alle Aktivitäten von und zu PAYONE. Sollten Fehler bei der Kommunikation mit der Schnittstelle auftreten, schauen Sie bitte hier nach.
+    </p>
+  </div>
+</div>
+
+<script charset="utf-8">
+  $(function() {
+    var $navis = $('#payone_docs_navigation a');
+    var $entries = $('#payone_docs_navigation li')
+
+    $navis.click(function(e) {
+      $entries.removeClass('active');
+      $(this).parent().addClass('active');
+      return true;
+    });
+  });
+</script>

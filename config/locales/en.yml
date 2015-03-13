@@ -1,5 +1,6 @@
 en:
   payone:
+    docs: "PAYONE Documentation"
     log: "PAYONE Log"
     logs: "PAYONE Logs"
     log_level: "Level"
@@ -31,10 +32,6 @@ en:
   listing_payone_logs: "Listing PAYONE Logs"
   clear_payone_logs: "Clear All"
   payone_log_is_not_found: "PAYONE Log is not found"
-
-  # Translations for /admin/payone_docs pages
-  payone_docs: "PAYONE Documentation"
-  payone_docs_description: "PAYONE configuration documentation for Spree engine."
 
   # Translation for preferences (analogue to preference names)
   payone_merchant_id: "PAYONE Merchant-ID"
