@@ -1,26 +1,28 @@
-<h1><%= t(:payone_log) %></h1>
+<% content_for :page_title do %>
+  <%= t(:log, scope: 'payone') %>
+<% end %>
 
-<table>
-  <tr data-hook="payone_log_level">
+<% content_for :page_actions do %>
+  <%= button_link_to t(:logs, scope: 'payone'), spree.admin_payone_logs_path, icon: 'arrow-left' %>
+<% end %>
+
+<table class="table table-bordered">
+  <tr>
     <th><%= t(:payone_log_level) %></th>
     <td>
       <%= @payone_log.level %>
     </td>
   </tr>
-  <tr data-hook="payone_log_message">
+  <tr>
     <th><%= t(:payone_log_message) %></th>
     <td>
       <%= @payone_log.message %>
     </td>
   </tr>
-  <tr data-hook="payone_log_created_at">
+  <tr>
     <th><%= t(:payone_log_created_at) %></th>
     <td>
-      <%= @payone_log.created_at %>
+      <%= l @payone_log.created_at %>
     </td>
   </tr>
 </table>
-
-<p>
-  <%= link_to t(:back), collection_url %>
-</p>
