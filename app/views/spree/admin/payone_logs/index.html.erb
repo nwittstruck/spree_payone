@@ -1,12 +1,12 @@
 <% content_for :page_title do %>
-  <%= t(:listing_payone_logs) %>
+  <%= t(:listing_payone_logs, scope: 'payone') %>
 <% end %>
 
 <% content_for :page_actions do %>
   <% if can? :manage, Spree::Payone %>
     <%= link_to_with_icon(
       'delete',
-      t(:clear_payone_logs),
+      t(:clear_payone_logs, scope: 'payone'),
       spree.clear_admin_payone_logs_url,
       {
         class: 'btn btn-danger',

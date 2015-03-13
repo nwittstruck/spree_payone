@@ -1,4 +1,4 @@
-jQuery(document).ready(function() {
+$(function() {
   payone_billing_address_validation_type_changed();
   payone_shipping_address_validation_type_changed();
 });
@@ -21,7 +21,7 @@ function payone_shipping_address_validation_type_changed() {
 
 function payone_address_validation_type_changed(select, address_check, consumer_score) {
   var selected = $(select).val();
-  
+
   switch(selected) {
     case 'none':
       $(address_check).hide();

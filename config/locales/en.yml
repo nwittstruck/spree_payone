@@ -1,11 +1,66 @@
 en:
+
   payone:
+    yes: 'Yes'
+    no: 'No'
+
     docs: "PAYONE Documentation"
+    edit_settings: "PAYONE Settings"
+
+    # Translations for /admin/payone_logs pages
+    listing_payone_logs: "Listing PAYONE Logs"
+    clear_payone_logs: "Clear All"
     log: "PAYONE Log"
     logs: "PAYONE Logs"
     log_level: "Level"
     log_message: "Message"
     log_created_at: "Created At"
+
+    # Translations for /admin/payone_settings pages
+    connection_preferences: "Connection Preferences (Global Settings)"
+    redirect_url_preferences: "Redirect Url Preferences"
+    logging_preferences: "Logging Preferences"
+    validation_preferences: "Validation Preferences"
+    billing_address_validation_preferences: "Billing Address Validation Preferences"
+    shipping_address_validation_preferences: "Shipping Address Validation Preferences"
+    address_check_validation_preferences: "Addresscheck Validation Preferences"
+    consumer_score_validation_preferences: "Consumerscore Validation Preferences"
+
+    # Translation for preferences (analogue to preference names)
+    payone_merchant_id: "Merchant-ID"
+    payone_payment_portal_id: "Portal-ID"
+    payone_payment_portal_key: "Key"
+    payone_sub_account_id: "Sub-Account ID"
+    payone_test_mode: "Test Mode"
+    payone_engine_host: "Engine Host"
+    payone_billing_address_validation_type: "Billing Address Validation Type"
+    payone_billing_address_address_check_address_check_type: "Address Check Type"
+    payone_billing_address_consumer_score_address_check_type: "Address Check Type"
+    payone_billing_address_consumer_score_consumer_score_type: "Consumer Score Type"
+    payone_shipping_address_validation_type: "Shipping Address Validation Type"
+    payone_shipping_address_address_check_address_check_type: "Address Check Type"
+    payone_shipping_address_consumer_score_address_check_type: "Address Check Type"
+    payone_shipping_address_consumer_score_consumer_score_type: "Consumer Score Type"
+    payone_address_check_none_person_status_to_consumer_score_score_mapping: "Map \"No verification of personal data carried out\" Addresscheck person status to Consumerscore score:"
+    payone_address_check_ppb_person_status_to_consumer_score_score_mapping: "Map \"First name and surname known\" Addresscheck person status to Consumerscore score:"
+    payone_address_check_phb_person_status_to_consumer_score_score_mapping: "Map \"Surname known\" Addresscheck person status to Consumerscore score:"
+    payone_address_check_pab_person_status_to_consumer_score_score_mapping: "Map \"First name and surname unknown\" Addresscheck person status to Consumerscore score:"
+    payone_address_check_pki_person_status_to_consumer_score_score_mapping: "Map \"Ambiguity in name and address\" Addresscheck person status to Consumerscore score:"
+    payone_address_check_pnz_person_status_to_consumer_score_score_mapping: "Map \"Cannot be delivered (any longer)\" Addresscheck person status to Consumerscore score:"
+    payone_address_check_ppv_person_status_to_consumer_score_score_mapping: "Map \"Person deceased\" Addresscheck person status to Consumerscore score:"
+    payone_address_check_ppf_person_status_to_consumer_score_score_mapping: "Map \"Postal address details incorrect\" Addresscheck person status to Consumerscore score:"
+    payone_consumer_score_on_yellow_score_allow_total_under: "On \"Yellow (average degree of creditworthiness)\" Consumerscore score allow all PAYONE payment methods if order total under:"
+    payone_consumer_score_on_yellow_score_block_total_over: "On \"Yellow (average degree of creditworthiness)\" Consumerscore score block all PAYONE payment methods if order total over:"
+    payone_consumer_score_on_yellow_score_gateway_payone_credit_card_enabled: "On \"Yellow (average degree of creditworthiness)\" Consumerscore score Spree::Gateway::PAYONE::CreditCard enabled"
+    payone_consumer_score_on_yellow_score_payment_method_payone_online_bank_transfer_enabled: "On \"Yellow (average degree of creditworthiness)\" Consumerscore score Spree::PaymentMethod::PAYONE::OnlineBankTransfer enabled"
+    payone_consumer_score_on_yellow_score_payment_method_payone_debit_payment_enabled: "On \"Yellow (average degree of creditworthiness)\" Consumerscore score Spree::PaymentMethod::PAYONE::DebitPayment enabled"
+    payone_consumer_score_on_yellow_score_payment_method_payone_e_wallet_enabled: "On \"Yellow (average degree of creditworthiness)\" Consumerscore score Spree::PaymentMethod::PAYONE::EWallet enabled"
+    payone_consumer_score_on_yellow_score_payment_method_payone_cash_on_delivery_enabled: "On \"Yellow (average degree of creditworthiness)\" Consumerscore score Spree::PaymentMethod::PAYONE::CashOnDelivery enabled"
+    payone_consumer_score_on_yellow_score_payment_method_payone_cash_in_advance_enabled: "On \"Yellow (average degree of creditworthiness)\" Consumerscore score Spree::PaymentMethod::PAYONE::CashInAdvance enabled"
+    payone_consumer_score_on_yellow_score_payment_method_payone_invoice_enabled: "On \"Yellow (average degree of creditworthiness)\" Consumerscore score Spree::PaymentMethod::PAYONE::Invoice enabled"
+    payone_db_logging_enabled: "DB Logging Enabled"
+    payone_db_logging_disabled: "DB Logging Disabled"
+    payone_file_logging_enabled: "File Logging Enabled"
 
   spree:
     admin:
@@ -13,68 +68,6 @@ en:
         payone_logs: Logs
         payone_settings: Settings
         payone_docs: Documentation
-
-  # Translations for /admin/payone_settings pages
-  payone_settings: "PAYONE Settings"
-  edit_payone_settings: "Edit PAYONE Settings"
-  payone_settings_description: "Configure PAYONE settings."
-
-  connection_preferences: "Connection Preferences (Global Settings)"
-  redirect_url_preferences: "Redirect Url Preferences"
-  logging_preferences: "Logging Preferences"
-  validation_preferences: "Validation Preferences"
-  billing_address_validation_preferences: "Billing Address Validation Preferences"
-  shipping_address_validation_preferences: "Shipping Address Validation Preferences"
-  address_check_validation_preferences: "Addresscheck Validation Preferences"
-  consumer_score_validation_preferences: "Consumerscore Validation Preferences"
-
-  # Translations for /admin/payone_logs pages
-  listing_payone_logs: "Listing PAYONE Logs"
-  clear_payone_logs: "Clear All"
-  payone_log_is_not_found: "PAYONE Log is not found"
-
-  # Translation for preferences (analogue to preference names)
-  payone_merchant_id: "PAYONE Merchant-ID"
-  payone_payment_portal_id: "PAYONE Portal-ID"
-  payone_payment_portal_key: "PAYONE Key"
-  payone_sub_account_id: "PAYONE Sub-Account ID"
-  payone_test_mode: "PAYONE Test Mode"
-
-  payone_engine_host: "PAYONE Engine Host"
-
-  payone_billing_address_validation_type: "PAYONE Billing Address Validation Type"
-  payone_billing_address_address_check_address_check_type: "Address Check Type"
-  payone_billing_address_consumer_score_address_check_type: "Address Check Type"
-  payone_billing_address_consumer_score_consumer_score_type: "Consumer Score Type"
-
-  payone_shipping_address_validation_type: "PAYONE Shipping Address Validation Type"
-  payone_shipping_address_address_check_address_check_type: "Address Check Type"
-  payone_shipping_address_consumer_score_address_check_type: "Address Check Type"
-  payone_shipping_address_consumer_score_consumer_score_type: "Consumer Score Type"
-
-  payone_address_check_none_person_status_to_consumer_score_score_mapping: "Map \"No verification of personal data carried out\" Addresscheck person status to Consumerscore score:"
-  payone_address_check_ppb_person_status_to_consumer_score_score_mapping: "Map \"First name and surname known\" Addresscheck person status to Consumerscore score:"
-  payone_address_check_phb_person_status_to_consumer_score_score_mapping: "Map \"Surname known\" Addresscheck person status to Consumerscore score:"
-  payone_address_check_pab_person_status_to_consumer_score_score_mapping: "Map \"First name and surname unknown\" Addresscheck person status to Consumerscore score:"
-  payone_address_check_pki_person_status_to_consumer_score_score_mapping: "Map \"Ambiguity in name and address\" Addresscheck person status to Consumerscore score:"
-  payone_address_check_pnz_person_status_to_consumer_score_score_mapping: "Map \"Cannot be delivered (any longer)\" Addresscheck person status to Consumerscore score:"
-  payone_address_check_ppv_person_status_to_consumer_score_score_mapping: "Map \"Person deceased\" Addresscheck person status to Consumerscore score:"
-  payone_address_check_ppf_person_status_to_consumer_score_score_mapping: "Map \"Postal address details incorrect\" Addresscheck person status to Consumerscore score:"
-
-  payone_consumer_score_on_yellow_score_allow_total_under: "On \"Yellow (average degree of creditworthiness)\" Consumerscore score allow all PAYONE payment methods if order total under:"
-  payone_consumer_score_on_yellow_score_block_total_over: "On \"Yellow (average degree of creditworthiness)\" Consumerscore score block all PAYONE payment methods if order total over:"
-
-  payone_consumer_score_on_yellow_score_gateway_payone_credit_card_enabled: "On \"Yellow (average degree of creditworthiness)\" Consumerscore score Spree::Gateway::PAYONE::CreditCard enabled"
-  payone_consumer_score_on_yellow_score_payment_method_payone_online_bank_transfer_enabled: "On \"Yellow (average degree of creditworthiness)\" Consumerscore score Spree::PaymentMethod::PAYONE::OnlineBankTransfer enabled"
-  payone_consumer_score_on_yellow_score_payment_method_payone_debit_payment_enabled: "On \"Yellow (average degree of creditworthiness)\" Consumerscore score Spree::PaymentMethod::PAYONE::DebitPayment enabled"
-  payone_consumer_score_on_yellow_score_payment_method_payone_e_wallet_enabled: "On \"Yellow (average degree of creditworthiness)\" Consumerscore score Spree::PaymentMethod::PAYONE::EWallet enabled"
-  payone_consumer_score_on_yellow_score_payment_method_payone_cash_on_delivery_enabled: "On \"Yellow (average degree of creditworthiness)\" Consumerscore score Spree::PaymentMethod::PAYONE::CashOnDelivery enabled"
-  payone_consumer_score_on_yellow_score_payment_method_payone_cash_in_advance_enabled: "On \"Yellow (average degree of creditworthiness)\" Consumerscore score Spree::PaymentMethod::PAYONE::CashInAdvance enabled"
-  payone_consumer_score_on_yellow_score_payment_method_payone_invoice_enabled: "On \"Yellow (average degree of creditworthiness)\" Consumerscore score Spree::PaymentMethod::PAYONE::Invoice enabled"
-
-  payone_db_logging_enabled: "PAYONE DB Logging Enabled"
-  payone_db_logging_disabled: "PAYONE DB Logging Disabled"
-  payone_file_logging_enabled: "PAYONE File Logging Enabled"
 
   # Translations for gateway/payment method source names
   cash_on_delivery: "Cash On Delivery"

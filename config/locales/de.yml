@@ -1,11 +1,66 @@
 de:
+
   payone:
+    yes: 'Ja'
+    no: 'Nein'
+
     docs: "PAYONE Dokumentation"
+    edit_settings: "PAYONE Einstellungen"
+
+    # Translations for /admin/payone_logs pages
+    listing_payone_logs: "Alle PAYONE Übertragungsprotokolle"
+    clear_payone_logs: "Alle löschen"
     log: "PAYONE Übertragungsprotokoll"
     logs: "PAYONE Übertragungsprotokolle"
     log_level: "Level"
     log_message: "Beschreibung"
     log_created_at: "Erstellt am"
+
+    # Translations for /admin/payone_settings pages
+    connection_preferences: "Account-Einstellungen"
+    redirect_url_preferences: "Redirect URL"
+    logging_preferences: "Übertragungsprotokoll"
+    validation_preferences: "Überprüfungseinstellungen"
+    billing_address_validation_preferences: "Überprüfung der Rechnungsadresse"
+    shipping_address_validation_preferences: "Überprüfung der Versandadresse"
+    address_check_validation_preferences: "Addresscheck Einstellungen"
+    consumer_score_validation_preferences: "Consumerscore Einstellungen"
+
+    # Translation for preferences (analogue to preference names)
+    payone_merchant_id: "Merchant-ID"
+    payone_payment_portal_id: "Portal-ID"
+    payone_payment_portal_key: "Key"
+    payone_sub_account_id: "Sub-Account ID"
+    payone_test_mode: "Test Modus"
+    payone_engine_host: "Shop URL"
+    payone_billing_address_validation_type: "Rechnungsadressüberprüfung"
+    payone_billing_address_address_check_address_check_type: "Addressprüfung"
+    payone_billing_address_consumer_score_address_check_type: "Addressprüfung"
+    payone_billing_address_consumer_score_consumer_score_type: "Consumer Score (Prüfe Kreditwürdigkeit)"
+    payone_shipping_address_validation_type: "Lieferadressprüfung"
+    payone_shipping_address_address_check_address_check_type: "Addressprüfung"
+    payone_shipping_address_consumer_score_address_check_type: "Addressprüfung"
+    payone_shipping_address_consumer_score_consumer_score_type: "Consumer Score (Prüfe Kreditwürdigkeit)"
+    payone_address_check_none_person_status_to_consumer_score_score_mapping: "Wenn 'Person nicht verifiziert werden kann'"
+    payone_address_check_ppb_person_status_to_consumer_score_score_mapping: "Wenn 'Vor- und Nachname bekannkt' sind"
+    payone_address_check_phb_person_status_to_consumer_score_score_mapping: "Wenn 'Nachname bekannt' ist"
+    payone_address_check_pab_person_status_to_consumer_score_score_mapping: "Wenn 'Vor- und Nachname unbekannt' sind"
+    payone_address_check_pki_person_status_to_consumer_score_score_mapping: "Wenn 'Name zu Adresse mehrdeutig' ist"
+    payone_address_check_pnz_person_status_to_consumer_score_score_mapping: "wenn 'nicht (mehr) ausgelieft werden kann'"
+    payone_address_check_ppv_person_status_to_consumer_score_score_mapping: "Wenn'Person verstorben' ist"
+    payone_address_check_ppf_person_status_to_consumer_score_score_mapping: "Bei 'inkorrekter postialischer Adresse'"
+    payone_consumer_score_on_yellow_score_allow_total_under: "Bei 'Gelb' alle Bezahlmethoden zulassen für einen Betrag unter"
+    payone_consumer_score_on_yellow_score_block_total_over: "Bei 'Gelb' alle Bezahlmethoden blockieren für einen Betrag über"
+    payone_consumer_score_on_yellow_score_gateway_payone_credit_card_enabled: "Kreditkarten bei 'Gelb' zulassen (Spree::Gateway::PAYONE::CreditCard)"
+    payone_consumer_score_on_yellow_score_payment_method_payone_online_bank_transfer_enabled: "Online Überweisung bei 'Gelb' zulassen (Spree::PaymentMethod::PAYONE::OnlineBankTransfer)"
+    payone_consumer_score_on_yellow_score_payment_method_payone_debit_payment_enabled: "Kontobasierte zahlungsarten bei 'Gelb' zulassen (Spree::PaymentMethod::PAYONE::DebitPayment)"
+    payone_consumer_score_on_yellow_score_payment_method_payone_e_wallet_enabled: "E-Wallet bei 'Gelb' zulassen (Spree::PaymentMethod::PAYONE::EWallet)"
+    payone_consumer_score_on_yellow_score_payment_method_payone_cash_on_delivery_enabled: "Per Nachname bei 'Gelb' zulassen (Spree::PaymentMethod::PAYONE::CashOnDelivery)"
+    payone_consumer_score_on_yellow_score_payment_method_payone_cash_in_advance_enabled: "Vorkasse bei 'Gelb' zulassen (Spree::PaymentMethod::PAYONE::CashInAdvance)"
+    payone_consumer_score_on_yellow_score_payment_method_payone_invoice_enabled: "Rechnung bei 'Gelb' zulassen (Spree::PaymentMethod::PAYONE::Invoice)"
+    payone_db_logging_enabled: "Datenbank Protokollierung aktivieren"
+    payone_db_logging_disabled: "Datenbank Protokollierung deaktivieren"
+    payone_file_logging_enabled: "Datei Logging aktivieren"
 
   spree:
     admin:
@@ -13,67 +68,6 @@ de:
         payone_logs: "Protokolle"
         payone_settings: Einstellungen
         payone_docs: Dokumentation
-
-  # Translations for /admin/payone_settings pages
-  edit_payone_settings: "PAYONE Einstellungen bearbeiten"
-  payone_settings_description: "Einstellungen zum PAYONE Konto."
-
-  connection_preferences: "Account-Einstellungen"
-  redirect_url_preferences: "Redirect Url"
-  logging_preferences: "Log Einstellungen"
-  validation_preferences: "Überprüfungseinstellungen"
-  billing_address_validation_preferences: "Überprüfung der Rechnungsadresse"
-  shipping_address_validation_preferences: "Überprüfung der Versandadresse"
-  address_check_validation_preferences: "Addresscheck Einstellungen"
-  consumer_score_validation_preferences: "Consumerscore Einstellungen"
-
-  # Translations for /admin/payone_logs pages
-  listing_payone_logs: "Alle PAYONE Übertragungsprotokolle"
-  clear_payone_logs: "Alle löschen"
-  payone_log_is_not_found: "PAYONE Log wurde nicht gefunden"
-
-  # Translation for preferences (analogue to preference names)
-  payone_merchant_id: "PAYONE Merchant-ID"
-  payone_payment_portal_id: "PAYONE Portal-ID"
-  payone_payment_portal_key: "PAYONE Key"
-  payone_sub_account_id: "PAYONE Sub-Account ID"
-  payone_test_mode: "PAYONE Test Modus"
-
-  payone_engine_host: "Shop URL"
-
-  payone_billing_address_validation_type: "Rechnungsadressüberprüfung"
-  payone_billing_address_address_check_address_check_type: "Addressprüfung"
-  payone_billing_address_consumer_score_address_check_type: "Addressprüfung"
-  payone_billing_address_consumer_score_consumer_score_type: "Consumer Score (Prüfe Kreditwürdigkeit)"
-
-  payone_shipping_address_validation_type: "Lieferadressprüfung"
-  payone_shipping_address_address_check_address_check_type: "Addressprüfung"
-  payone_shipping_address_consumer_score_address_check_type: "Addressprüfung"
-  payone_shipping_address_consumer_score_consumer_score_type: "Consumer Score (Prüfe Kreditwürdigkeit)"
-
-  payone_address_check_none_person_status_to_consumer_score_score_mapping: "Wenn 'Person nicht verifiziert werden kann'"
-  payone_address_check_ppb_person_status_to_consumer_score_score_mapping: "Wenn 'Vor- und Nachname bekannkt' sind"
-  payone_address_check_phb_person_status_to_consumer_score_score_mapping: "Wenn 'Nachname bekannt' ist"
-  payone_address_check_pab_person_status_to_consumer_score_score_mapping: "Wenn 'Vor- und Nachname unbekannt' sind"
-  payone_address_check_pki_person_status_to_consumer_score_score_mapping: "Wenn 'Name zu Adresse mehrdeutig' ist"
-  payone_address_check_pnz_person_status_to_consumer_score_score_mapping: "wenn 'nicht (mehr) ausgelieft werden kann'"
-  payone_address_check_ppv_person_status_to_consumer_score_score_mapping: "Wenn'Person verstorben' ist"
-  payone_address_check_ppf_person_status_to_consumer_score_score_mapping: "Bei 'inkorrekter postialischer Adresse'"
-
-  payone_consumer_score_on_yellow_score_allow_total_under: "Bei 'Gelb' alle Bezahlmethoden zulassen für einen Betrag unter"
-  payone_consumer_score_on_yellow_score_block_total_over: "Bei 'Gelb' alle Bezahlmethoden blockieren für einen Betrag über"
-
-  payone_consumer_score_on_yellow_score_gateway_payone_credit_card_enabled: "Kreditkarten bei 'Gelb' zulassen (Spree::Gateway::PAYONE::CreditCard)"
-  payone_consumer_score_on_yellow_score_payment_method_payone_online_bank_transfer_enabled: "Online Überweisung bei 'Gelb' zulassen (Spree::PaymentMethod::PAYONE::OnlineBankTransfer)"
-  payone_consumer_score_on_yellow_score_payment_method_payone_debit_payment_enabled: "Kontobasierte zahlungsarten bei 'Gelb' zulassen (Spree::PaymentMethod::PAYONE::DebitPayment)"
-  payone_consumer_score_on_yellow_score_payment_method_payone_e_wallet_enabled: "E-Wallet bei 'Gelb' zulassen (Spree::PaymentMethod::PAYONE::EWallet)"
-  payone_consumer_score_on_yellow_score_payment_method_payone_cash_on_delivery_enabled: "Per Nachname bei 'Gelb' zulassen (Spree::PaymentMethod::PAYONE::CashOnDelivery)"
-  payone_consumer_score_on_yellow_score_payment_method_payone_cash_in_advance_enabled: "Vorkasse bei 'Gelb' zulassen (Spree::PaymentMethod::PAYONE::CashInAdvance)"
-  payone_consumer_score_on_yellow_score_payment_method_payone_invoice_enabled: "Rechnung bei 'Gelb' zulassen (Spree::PaymentMethod::PAYONE::Invoice)"
-
-  payone_db_logging_enabled: "PAYONE DB Logging ist aktiviert"
-  payone_db_logging_disabled: "PAYONE DB Logging ist deaktiviert"
-  payone_file_logging_enabled: "PAYONE Datei Logging ist aktiviert"
 
   # Translations for gateway/payment method source names
   cash_on_delivery: "Per Nachname"
