@@ -1,4 +1,18 @@
 en:
+  payone:
+    log: "PAYONE Log"
+    logs: "PAYONE Logs"
+    log_level: "Level"
+    log_message: "Message"
+    log_created_at: "Created At"
+
+  spree:
+    admin:
+      tab:
+        payone_logs: Logs
+        payone_settings: Settings
+        payone_docs: Documentation
+
   # Translations for /admin/payone_settings pages
   payone_settings: "PAYONE Settings"
   edit_payone_settings: "Edit PAYONE Settings"
@@ -14,16 +28,7 @@ en:
   consumer_score_validation_preferences: "Consumerscore Validation Preferences"
 
   # Translations for /admin/payone_logs pages
-  payone_logs: "PAYONE Logs"
-  payone_logs_description: "Browse PAYONE logs stored in DB."
-  payone_log: "PAYONE Log"
   listing_payone_logs: "Listing PAYONE Logs"
-  payone_log_level: "Level"
-  payone_log_message: "Message"
-  payone_log_created_at: "Created At"
-  payone_log_level_title: "Level"
-  payone_log_message_title: "Message"
-  payone_log_created_at_title: "Created At"
   clear_payone_logs: "Clear All"
   payone_log_is_not_found: "PAYONE Log is not found"
 

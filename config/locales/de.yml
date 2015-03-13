@@ -1,6 +1,19 @@
 de:
+  payone:
+    log: "PAYONE Übertragungsprotokoll"
+    logs: "PAYONE Übertragungsprotokolle"
+    log_level: "Level"
+    log_message: "Beschreibung"
+    log_created_at: "Erstellt am"
+
+  spree:
+    admin:
+      tab:
+        payone_logs: "Protokolle"
+        payone_settings: Einstellungen
+        payone_docs: Dokumentation
+
   # Translations for /admin/payone_settings pages
-  payone_settings: "PAYONE Einstellungen (Globale Einstellungen)"
   edit_payone_settings: "PAYONE Einstellungen bearbeiten"
   payone_settings_description: "Einstellungen zum PAYONE Konto."
 
@@ -14,16 +27,7 @@ de:
   consumer_score_validation_preferences: "Consumerscore Einstellungen"
 
   # Translations for /admin/payone_logs pages
-  payone_logs: "PAYONE Logs"
-  payone_logs_description: "Protokoll der PAYONE Kommunikation."
-  payone_log: "PAYONE Log"
-  listing_payone_logs: "Liste aller PAYONE Logs"
-  payone_log_level: "Level"
-  payone_log_message: "Beschreibung"
-  payone_log_created_at: "Erstellt am"
-  payone_log_level_title: "Level"
-  payone_log_message_title: "Beschreibung"
-  payone_log_created_at_title: "Erstellt am"
+  listing_payone_logs: "Alle PAYONE Übertragungsprotokolle"
   clear_payone_logs: "Alle löschen"
   payone_log_is_not_found: "PAYONE Log wurde nicht gefunden"
 
@@ -209,6 +213,12 @@ de:
   payment_method_not_available_for_country: "Die ausgewählte Bezahlmethode ist für dieses Land nicht verfügbar (%{country_code})"
   details: "Details"
   whats_this: "Was ist das?"
+
+  activerecord:
+    models:
+      spree/payone_log:
+        one: Protokoll
+        other: Protokolle
 
   # Translations for errors
   errors:

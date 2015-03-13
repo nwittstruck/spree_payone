@@ -1,0 +1,5 @@
+<% if can? :manage, Spree::Payone %>
+  <ul class="nav nav-sidebar">
+    <%= main_menu_tree 'PAYONE', url: '#sidebar-payone', icon: 'th-large', sub_menu: "payone" %>
+  </ul>
+<% end %>
