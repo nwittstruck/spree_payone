@@ -1,9 +1,6 @@
 en:
 
   payone:
-    yes: 'Yes'
-    no: 'No'
-
     docs: "PAYONE Documentation"
     edit_settings: "PAYONE Settings"
 
@@ -62,6 +59,142 @@ en:
     payone_db_logging_disabled: "DB Logging Disabled"
     payone_file_logging_enabled: "File Logging Enabled"
 
+    # Translations for gateway/payment method source names
+    cash_on_delivery: "Cash On Delivery"
+    credit_card: "Credit Card"
+    debit_payment: "Debit Payment"
+    e_wallet: "E-wallet"
+    invoice: "Invoice"
+    online_bank_transfer: "Online Bank Transfer"
+    cash_in_advance: "Cash In Advance"
+
+    # Translations for gateway/payment method source field names
+    shipping_provider: "Shipping Provider"
+    card_number: "Card Number"
+    expiration: "Expiration"
+    card_code: "Card Code"
+    card_type: "Card Type"
+    card_holder: "Card Holder"
+    iban: IBAN
+    bic: BIC
+    bank_country: "Bank Country"
+    bank_account: "Bank Accout"
+    bank_code: "Bank Code"
+    bank_account_holder: "Bank Account Holder"
+    wallet_type: "Wallet Type"
+    online_bank_transfer_type: "Online Bank Transfer Type"
+    bank_group_type: "Bank Group Type"
+
+    # Translations for gateway/payment method preferenced (analogue to preference names)
+    use_global_account_settings: "Use Global Account Settings"
+    merchant_id: "Merchant-ID"
+    payment_portal_id: "Portal-ID"
+    payment_portal_key: "Key"
+    sub_account_id: "Sub-Account ID"
+    test_mode: "Test Mode"
+    currency_code: "Currency Code (ISO 4217)"
+
+    credit_card_types: "Credit Card Types"
+    online_bank_transfer_types: "Online Bank Transfer Types"
+
+    # Translations for request/response values
+    address_check_type_basic: "Address verification Basic (BA)"
+    address_check_type_person: "Address verification Person (PE)"
+    address_check_type_no: "Do not carry out address check"
+
+    address_validation_type_none: "None"
+    address_validation_type_address_check: "Address verification"
+    address_validation_type_consumer_score: "Consumerscore (Verification of creditworthiness)"
+
+    consumer_score_type_ih: "Infoscore (hard criteria)"
+    consumer_score_type_ia: "Infoscore (all criteria)"
+    consumer_score_type_ib: "Infoscore (all criteria + bonuses score)"
+
+    credit_card_type_visa: "Visa"
+    credit_card_type_mastercard: "Mastercard"
+    credit_card_type_amex: "American Express"
+    credit_card_type_diners: "Diners"
+    credit_card_type_jbc: "JBC"
+    credit_card_type_maestro_international: "Maestro International"
+    credit_card_type_discover: "Discover"
+    credit_card_type_carte_bleue: "Carte Bleue"
+
+    online_bank_transfer_type_instant_money_transfer: "Instant money transfer"
+    online_bank_transfer_type_giropay: "Giropay"
+    online_bank_transfer_type_online_transfer: "Online transfer"
+    online_bank_transfer_type_postfinance_e_finance: "PostFinance E-Finance"
+    online_bank_transfer_type_postfinance_card: "PostFinance Card"
+    online_bank_transfer_type_ideal: "iDeal"
+
+    person_status_none: "No verification of personal data carried out"
+    person_status_ppb: "First name and surname known"
+    person_status_phb: "Surname known"
+    person_status_pab: "First name and surname unknown"
+    person_status_pki: "Ambiguity in name and address"
+    person_status_pnz: "Cannot be delivered (any longer)"
+    person_status_ppv: "Person deceased"
+    person_status_ppf: "Postal address details incorrect"
+
+    score_green: "Green (high degree of creditworthiness)"
+    score_yellow: "Yellow (average degree of creditworthiness)"
+    score_red: "Red (low degree of creditworthiness)"
+
+    sec_status_s10: "10"
+    sec_status_s20: "20"
+    sec_status_s30: "30"
+
+    shipping_provider_dhl: "DHL"
+    shipping_provider_bartolini: "Bartolini"
+
+    store_card_data_yes: "Yes"
+    store_card_data_no: "No"
+
+    wallet_type_paypal_express: "PayPal Express"
+
+    bank_country_de: "Germany"
+    bank_country_at: "Austria"
+    bank_country_nl: "Netherlands"
+    bank_country_ch: "Switzerland"
+
+    bank_group_type_arz_ovb: "Commercial credit cooperatives (Volksbank)"
+    bank_group_type_arz_baf: "Bank for doctors and independent professions"
+    bank_group_type_arz_nlh: "Hypo state bank Lower Austria"
+    bank_group_type_arz_vlh: "Hypo state bank Voralberg"
+    bank_group_type_agarz_bcs: "Bankhaus Carl Spängler & Co."
+    bank_group_type_arz_htb: "Hypo bank Tyrol"
+    bank_group_type_arz_haa: "Hypo Alpe Adria"
+    bank_group_type_arz_ikb: "Investkredit bank"
+    bank_group_type_arz_oab: "Österreichische Apothekerbank"
+    bank_group_type_arz_imb: "Immobank"
+    bank_group_type_arz_grb: "Gärtnerbank"
+    bank_group_type_arz_hib: "HYPO Investment bank"
+    bank_group_type_ba_aus: "Bank Austria"
+    bank_group_type_bawag_bwg: "BAWAG"
+    bank_group_type_bawag_psk: "PSK Bank"
+    bank_group_type_bawag_esy: "easybank"
+    bank_group_type_bawag_spd: "Sparda Bank"
+    bank_group_type_spardat_ebs: "Erste Bank"
+    bank_group_type_spardat_bbl: "Bank Burgenland"
+    bank_group_type_rac_rac: "Raiffeisen bank"
+    bank_group_type_hrac_oos: "Hypo bank Upper Austria"
+    bank_group_type_hrac_slb: "Hypo bank Salzburg"
+    bank_group_type_hrac_stm: "Hypo bank Styria"
+    bank_group_type_abn_amro_bank: "ABN Amro"
+    bank_group_type_rabobank: "Rabobank"
+    bank_group_type_friesland_bank: "Friesland Bank"
+    bank_group_type_asn_bank: "ASN Bank"
+    bank_group_type_sns_bank: "SNS Bank"
+    bank_group_type_triodos_bank: "Triodos"
+    bank_group_type_sns_regio_bank: "SNS Regio Bank"
+    bank_group_type_ing_bank: "ING"
+
+    # Translation for custom messages
+    payone_credit_card_check_failed: "PAYONE credit card check failed"
+    payment_processing_canceled: "Payment could not be processed because it has been canceled"
+    payment_method_not_available_for_country: "Selected payment method is not available for your country (%{country_code})"
+    details: "Details"
+    whats_this: "What's this?"
+
   spree:
     admin:
       tab:
@@ -69,150 +202,19 @@ en:
         payone_settings: Settings
         payone_docs: Documentation
 
-  # Translations for gateway/payment method source names
-  cash_on_delivery: "Cash On Delivery"
-  credit_card: "Credit Card"
-  debit_payment: "Debit Payment"
-  e_wallet: "E-wallet"
-  invoice: "Invoice"
-  online_bank_transfer: "Online Bank Transfer"
-  cash_in_advance: "Cash In Advance"
+  activerecord:
+    models:
+      spree/payone_log:
+        one: Log
+        other: Logs
 
-  # Translations for gateway/payment method source field names
-  shipping_provider: "Shipping Provider"
-  card_number: "Card Number"
-  expiration: "Expiration"
-  card_code: "Card Code"
-  card_type: "Card Type"
-  card_holder: "Card Holder"
-  iban: IBAN
-  bic: BIC
-  bank_country: "Bank Country"
-  bank_account: "Bank Accout"
-  bank_code: "Bank Code"
-  bank_account_holder: "Bank Account Holder"
-  wallet_type: "Wallet Type"
-  online_bank_transfer_type: "Online Bank Transfer Type"
-  bank_group_type: "Bank Group Type"
-
-  # Translations for gateway/payment method preferenced (analogue to preference names)
-  use_global_account_settings: "Use Global Account Settings"
-  merchant_id: "Merchant-ID"
-  payment_portal_id: "Portal-ID"
-  payment_portal_key: "Key"
-  sub_account_id: "Sub-Account ID"
-  test_mode: "Test Mode"
-  currency_code: "Currency Code (ISO 4217)"
-
-  credit_card_types: "Credit Card Types"
-  online_bank_transfer_types: "Online Bank Transfer Types"
-
-  # Translations for request/response values
-  address_check_type_basic: "Address verification Basic (BA)"
-  address_check_type_person: "Address verification Person (PE)"
-  address_check_type_no: "Do not carry out address check"
-
-  address_validation_type_none: "None"
-  address_validation_type_address_check: "Address verification"
-  address_validation_type_consumer_score: "Consumerscore (Verification of creditworthiness)"
-
-  consumer_score_type_ih: "Infoscore (hard criteria)"
-  consumer_score_type_ia: "Infoscore (all criteria)"
-  consumer_score_type_ib: "Infoscore (all criteria + bonuses score)"
-
-  credit_card_type_visa: "Visa"
-  credit_card_type_mastercard: "Mastercard"
-  credit_card_type_amex: "American Express"
-  credit_card_type_diners: "Diners"
-  credit_card_type_jbc: "JBC"
-  credit_card_type_maestro_international: "Maestro International"
-  credit_card_type_discover: "Discover"
-  credit_card_type_carte_bleue: "Carte Bleue"
-
-  online_bank_transfer_type_instant_money_transfer: "Instant money transfer"
-  online_bank_transfer_type_giropay: "Giropay"
-  online_bank_transfer_type_online_transfer: "Online transfer"
-  online_bank_transfer_type_postfinance_e_finance: "PostFinance E-Finance"
-  online_bank_transfer_type_postfinance_card: "PostFinance Card"
-  online_bank_transfer_type_ideal: "iDeal"
-
-  person_status_none: "No verification of personal data carried out"
-  person_status_ppb: "First name and surname known"
-  person_status_phb: "Surname known"
-  person_status_pab: "First name and surname unknown"
-  person_status_pki: "Ambiguity in name and address"
-  person_status_pnz: "Cannot be delivered (any longer)"
-  person_status_ppv: "Person deceased"
-  person_status_ppf: "Postal address details incorrect"
-
-  score_green: "Green (high degree of creditworthiness)"
-  score_yellow: "Yellow (average degree of creditworthiness)"
-  score_red: "Red (low degree of creditworthiness)"
-
-  sec_status_s10: "10"
-  sec_status_s20: "20"
-  sec_status_s30: "30"
-
-  shipping_provider_dhl: "DHL"
-  shipping_provider_bartolini: "Bartolini"
-
-  store_card_data_yes: "Yes"
-  store_card_data_no: "No"
-
-  wallet_type_paypal_express: "PayPal Express"
-
-  bank_country_de: "Germany"
-  bank_country_at: "Austria"
-  bank_country_nl: "Netherlands"
-  bank_country_ch: "Switzerland"
-
-  bank_group_type_arz_ovb: "Commercial credit cooperatives (Volksbank)"
-  bank_group_type_arz_baf: "Bank for doctors and independent professions"
-  bank_group_type_arz_nlh: "Hypo state bank Lower Austria"
-  bank_group_type_arz_vlh: "Hypo state bank Voralberg"
-  bank_group_type_agarz_bcs: "Bankhaus Carl Spängler & Co."
-  bank_group_type_arz_htb: "Hypo bank Tyrol"
-  bank_group_type_arz_haa: "Hypo Alpe Adria"
-  bank_group_type_arz_ikb: "Investkredit bank"
-  bank_group_type_arz_oab: "Österreichische Apothekerbank"
-  bank_group_type_arz_imb: "Immobank"
-  bank_group_type_arz_grb: "Gärtnerbank"
-  bank_group_type_arz_hib: "HYPO Investment bank"
-  bank_group_type_ba_aus: "Bank Austria"
-  bank_group_type_bawag_bwg: "BAWAG"
-  bank_group_type_bawag_psk: "PSK Bank"
-  bank_group_type_bawag_esy: "easybank"
-  bank_group_type_bawag_spd: "Sparda Bank"
-  bank_group_type_spardat_ebs: "Erste Bank"
-  bank_group_type_spardat_bbl: "Bank Burgenland"
-  bank_group_type_rac_rac: "Raiffeisen bank"
-  bank_group_type_hrac_oos: "Hypo bank Upper Austria"
-  bank_group_type_hrac_slb: "Hypo bank Salzburg"
-  bank_group_type_hrac_stm: "Hypo bank Styria"
-  bank_group_type_abn_amro_bank: "ABN Amro"
-  bank_group_type_rabobank: "Rabobank"
-  bank_group_type_friesland_bank: "Friesland Bank"
-  bank_group_type_asn_bank: "ASN Bank"
-  bank_group_type_sns_bank: "SNS Bank"
-  bank_group_type_triodos_bank: "Triodos"
-  bank_group_type_sns_regio_bank: "SNS Regio Bank"
-  bank_group_type_ing_bank: "ING"
-
-  # Translation for custom messages
-  payone_credit_card_check_failed: "PAYONE credit card check failed"
-  payment_processing_canceled: "Payment could not be processed because it has been canceled"
-  payment_method_not_available_for_country: "Selected payment method is not available for your country (%{country_code})"
-  details: "Details"
-  whats_this: "What's this?"
-
-  # Translations for errors
-  errors:
-    messages:
-      person_status_none: "No verification of personal data carried out"
-      person_status_ppb: "First name and surname known"
-      person_status_phb: "Surname known"
-      person_status_pab: "First name and surname unknown"
-      person_status_pki: "Ambiguity in name and address"
-      person_status_pnz: "Cannot be delivered (any longer)"
-      person_status_ppv: "Person deceased"
-      person_status_ppf: "Postal address details incorrect"
+    errors:
+      messages:
+        person_status_none: "No verification of personal data carried out"
+        person_status_ppb: "First name and surname known"
+        person_status_phb: "Surname known"
+        person_status_pab: "First name and surname unknown"
+        person_status_pki: "Ambiguity in name and address"
+        person_status_pnz: "Cannot be delivered (any longer)"
+        person_status_ppv: "Person deceased"
+        person_status_ppf: "Postal address details incorrect"

@@ -130,7 +130,7 @@ module Spree
           @payment.failure
         end
         
-        flash[:error] = t(:payment_processing_canceled)
+        flash[:error] = t(:payment_processing_canceled, scope: 'payone')
         respond_with(@payment) { |format| format.html { redirect_to new_admin_order_payment_path(@order) } }
       end
     end

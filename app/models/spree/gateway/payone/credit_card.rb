@@ -47,7 +47,7 @@ module Spree
           creditcard.gateway_payment_profile_id= 0
           creditcard.save
         else
-          raise Core::GatewayError.new(I18n.t(:payone_credit_card_check_failed))
+          raise Core::GatewayError.new(I18n.t(:payone_credit_card_check_failed, scope: 'payone'))
         end
       end
     end

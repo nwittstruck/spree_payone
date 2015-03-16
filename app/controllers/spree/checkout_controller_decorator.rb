@@ -101,7 +101,7 @@ module Spree
       @order.state = 'payment'
       @order.save
 
-      flash[:error] = t(:payment_processing_canceled)
+      flash[:error] = t(:payment_processing_canceled, scope: 'payone')
       respond_with(@order) { |format| format.html { render :edit } }
     end
 
