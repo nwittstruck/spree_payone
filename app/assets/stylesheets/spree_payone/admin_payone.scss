@@ -1,0 +1,16 @@
+#content {
+  min-height: 650px;
+}
+
+#payone-documentation-subnavi {
+  height: 80px;
+
+  .affix {
+    top: 50px;
+    z-index: 1;
+    width: 100%;
+    background: white;
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+}

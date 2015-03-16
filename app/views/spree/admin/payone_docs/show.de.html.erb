@@ -2,9 +2,9 @@
   <%= t(:docs, scope: 'payone') %>
 <% end %>
 
-<div class="row">
-  <div class="col-md-12">
-    <ul class="nav nav-pills" id="payone_docs_navigation">
+<div class="row" id="payone-documentation-subnavi">
+  <div class="col-md-12" data-spy="affix" data-offset-top="70">
+    <ul class="nav nav-pills">
       <li role="presentation" class="active"><a href="#einstellungen">Einstellungen</a></li>
       <li role="presentation"><a href="#bezahlmethoden">Bezahlmethoden</a></li>
       <li role="presentation"><a href="#adressvalidierung">Adressvalidierung</a></li>
@@ -16,8 +16,7 @@
 
 <div class="panel panel-default">
   <div class="panel-heading">
-    <a name="einstellungen"></a>
-    <h3 class="panel-title">PAYONE Einstellungen</h3>
+    <h3 class="panel-title" id="einstellungen">PAYONE Einstellungen</h3>
   </div>
   <div class="panel-body">
     <p>
@@ -40,8 +39,7 @@
 
 <div class="panel panel-default">
   <div class="panel-heading">
-    <a name="bezahlmethoden"></a>
-    <h3 class="panel-title">PAYONE Bezahlmethoden</h3>
+    <h3 class="panel-title" id="bezahlmethoden">PAYONE Bezahlmethoden</h3>
   </div>
   <div class="panel-body">
     <p>
@@ -57,8 +55,7 @@
       <li><a href="#invoice">Rechnung (Spree::PaymentMethod::PAYONE::Invoice)</a></li>
     </ol>
 
-    <a name="credit"></a>
-    <strong>1. Kreditkarte (PAYONE::CreditCard)</strong>
+    <strong id="credit">1. Kreditkarte (PAYONE::CreditCard)</strong>
     <p>
       Mit dieser Methode können verschiedene Kreditkartenarten angeboten werden. Um mehrere Arten gleichzeitig anzubieten, legen Sie die Methode bitte mehrfach mit unterschiedlichen Einstellungen an.
       In dem Feld "Credit Card Type" können Sie bestimmen, welcher Kartentyp aktzeptiert werden soll.
@@ -77,12 +74,10 @@
       Für MasterCard, Visa und JCB sind 3D-Secure-Karten automatisch mit abgedeckt.
     </p>
 
-    <a name="advance"></a>
-    <strong>2. Vorkasse (PAYONE::CashInAdvance)</strong>
+    <strong id="advance">2. Vorkasse (PAYONE::CashInAdvance)</strong>
     <p></p>
 
-    <a name="delivery"></a>
-    <strong>3. Per Nachname (PAYONE::CashOnDelivery)</strong>
+    <strong id="delivery">3. Per Nachname (PAYONE::CashOnDelivery)</strong>
     <p>
       Diese Bezahlmethode ist an den Versand gebunden. Um Sie benutzen zu können müssen Sie die Ware mit folgenden Dienstleistern versenden:
     </p>
@@ -91,8 +86,7 @@
       <li>BRT (Bartolini) für Italien</li>
     </ul>
 
-    <a name="online"></a>
-    <strong>4. Online Überweisung (PAYONE::OnlineBankTransfer)</strong>
+    <strong id="online">4. Online Überweisung (PAYONE::OnlineBankTransfer)</strong>
     <p>
       Mit dieser Methode können verschiedene Anbieter für Onlineüberweisungen angeboten werden. Um mehrere Arten gleichzeitig anzubieten, legen Sie die   Methode bitte mehrfach mit unterschiedlichen Einstellungen an.
       In dem Feld "Bank" können Sie bestimmen, welcher Kartentyp aktzeptiert werden soll.
@@ -109,28 +103,24 @@
       Die Länderkürzel in Klammern geben an in welchen Regionen diesen Kartentypen unterstützen.
     </p>
 
-    <a name="debit"></a>
-    <strong>5. Kontobasierte Zahlungsarten (PAYONE::DebitPayment)</strong>
+    <strong id="debit">5. Kontobasierte Zahlungsarten (PAYONE::DebitPayment)</strong>
     <p>
       Elektronisches Lastschriftverfahren über IBAN und BIC des Kunden.
     </p>
 
-    <a name="ewallet"></a>
-    <strong>6. E-Wallet (PAYONE::EWallet)</strong>
+    <strong id="ewallet">6. E-Wallet (PAYONE::EWallet)</strong>
     <ul>
       <li>PayPal: PPE</li>
     </ul>
 
-    <a name="invoice"></a>
-    <strong>7. Rechnung (Spree::PaymentMethod::PAYONE::Invoice)</strong>
+    <strong id="invoice">7. Rechnung (Spree::PaymentMethod::PAYONE::Invoice)</strong>
     <p></p>
   </div>
 </div>
 
 <div class="panel panel-default">
   <div class="panel-heading">
-    <a name="adressvalidierung"></a>
-    <h3 class="panel-title">PAYONE Adressvalidierung</h3>
+    <h3 class="panel-title" id="adressvalidierung">PAYONE Adressvalidierung</h3>
   </div>
   <div class="panel-body">
     <p>
@@ -153,8 +143,7 @@
 
 <div class="panel panel-default">
   <div class="panel-heading">
-    <a name="ueberzahlungen"></a>
-    <h3 class="panel-title">Überzahlungen zurück überweisen</h3>
+    <h3 class="panel-title" id="ueberzahlungen">Überzahlungen zurück überweisen</h3>
   </div>
   <div class="panel-body">
     <p>
@@ -165,8 +154,7 @@
 
 <div class="panel panel-default">
   <div class="panel-heading">
-    <a name="uebertragungsprotokolle"></a>
-    <h3 class="panel-title">PAYONE Übertragungsprotokolle</h3>
+    <h3 class="panel-title" id="uebertragungsprotokolle">PAYONE Übertragungsprotokolle</h3>
   </div>
   <div class="panel-body">
     <p>
@@ -177,8 +165,8 @@
 
 <script charset="utf-8">
   $(function() {
-    var $navis = $('#payone_docs_navigation a');
-    var $entries = $('#payone_docs_navigation li')
+    var $navis = $('#payone-documentation-subnavi a');
+    var $entries = $('#payone-documentation-subnavi li')
 
     $navis.click(function(e) {
       $entries.removeClass('active');
