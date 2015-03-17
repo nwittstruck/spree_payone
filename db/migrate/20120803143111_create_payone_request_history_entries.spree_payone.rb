@@ -4,8 +4,8 @@ class CreatePayoneRequestHistoryEntries < ActiveRecord::Migration
       t.string :txid, :request_type, :status, :success_token, :back_token, :error_token
       t.boolean :overall_status
       t.integer :payment_id, :default => nil, :null => true
-      
-      t.timestamps
+
+      t.timestamps null: true
     end
   end
 end
