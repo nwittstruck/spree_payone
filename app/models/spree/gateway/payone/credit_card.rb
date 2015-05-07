@@ -15,6 +15,11 @@ module Spree
     preference :currency_code, :string, :default => 'EUR'
     preference :credit_card_types, :string, :default => 'V'
 
+    # delete the server from preferences, we set it in options
+    after_initialize do
+      preferences.delete(:server)
+    end
+
     # Returns provider class responsible for Spree gateway action implementations.
     def provider_class
       ::Spree::PAYONE::Provider::Payment::CreditCard
@@ -51,18 +56,6 @@ module Spree
         end
       end
     end
-
-    # Returns PAYONE gateway preferences (disable :server preference).
-    def preferences
-      preferences_map = {}
-      super.each do |key, value|
-        if not key.to_sym == :server
-          preferences_map[key] = value
-        end
-      end
-      preferences_map
-    end
-
 
     # Returns PAYONE gateway options. Internally sets :server which
     # depends on :test_mode.
