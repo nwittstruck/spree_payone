@@ -1,9 +1,9 @@
 <fieldset>
   <p class="field" data-hook="previous_cards">
-    <% @previous_cards.each do |card| %>
-      <label><%= radio_button_tag :payone_card, card.id, card == @previous_cards.first %> <%= card.display_number %><br /></label>
+    <% previous_cards.each do |card| %>
+      <label><%= radio_button_tag :payone_card, card.id, card == previous_cards.first %> <%= card.display_number %><br /></label>
     <% end %>
-    <label><%= radio_button_tag :payone_card, 'new', @previous_cards.none? %> <%= t(:use_new_cc) %></label>
+    <label><%= radio_button_tag :payone_card, 'new', previous_cards.none? %> <%= t(:use_new_cc) %></label>
   </p>
   <div id="payone_card_form" data-hook>
     <%
