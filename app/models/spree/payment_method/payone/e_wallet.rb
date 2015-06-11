@@ -1,9 +1,9 @@
 # Spree payment method which covers PAYONE e-wallet operations.
 #
-# Uses ::Spree::PaymentSource::PAYONE::EWallet for standard
+# Uses ::Spree::PaymentSource::Payone::EWallet for standard
 # Spree payment method action implementations.
 module Spree
-  class PaymentMethod::PAYONE::EWallet < PaymentMethod::PAYONE::PaymentMethod
+  class PaymentMethod::Payone::EWallet < PaymentMethod::Payone::PaymentMethod
 
     # Payment method preferences
     preference :wallet_type, :string, :default => 'PPE'
@@ -15,12 +15,12 @@ module Spree
 
     # Returns provider class responsible for Spree payment method action implementations.
     def provider_class
-      ::Spree::PAYONE::Provider::Payment::EWallet
+      ::Spree::Payone::Provider::Payment::EWallet
     end
 
     # Returns payment source class.
     def payment_source_class
-      ::Spree::PaymentSource::PAYONE::PayoneEWalletPaymentSource
+      ::Spree::PaymentSource::Payone::PayoneEWalletPaymentSource
     end
 
     # Redefines method_type which allows to load correct partial template

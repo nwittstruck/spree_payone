@@ -1,17 +1,17 @@
 # Container for address check type values.
-module Spree::PAYONE
+module Spree::Payone
   module Utils
     class AddressCheckType
       # Address check type values
       BASIC = 'BA'
       PERSON = 'PE'
       NO = 'NO'
-      
+
       # Address check type symbol values
       BASIC_SYMBOL = :address_check_type_basic
       PERSON_SYMBOL = :address_check_type_person
       NO_SYMBOL = :address_check_type_no
-      
+
       # Validates address check type and returns PAYONE specific code.
       def self.validate(type)
         type = type.to_s.downcase
@@ -25,7 +25,7 @@ module Spree::PAYONE
           nil
         end
       end
-      
+
       # Validates address check type and returns symbol.
       def self.validate_symbol(type)
         case self.validate(type)
@@ -39,7 +39,7 @@ module Spree::PAYONE
             return nil
         end
       end
-      
+
       # Returns all values array.
       def self.list()
         [self::BASIC, self::PERSON, self::NO]

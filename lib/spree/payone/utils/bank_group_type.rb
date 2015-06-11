@@ -1,5 +1,5 @@
 # Container for bank group type values.
-module Spree::PAYONE
+module Spree::Payone
   module Utils
     class BankGroupType
       # Bank group type values
@@ -34,7 +34,7 @@ module Spree::PAYONE
       TRIODOS_BANK = 'TRIODOS_BANK'
       SNS_REGIO_BANK = 'SNS_REGIO_BANK'
       ING_BANK = 'ING_BANK'
-      
+
       # Bank group type symbol values
       ARZ_OVB_SYMBOL = :bank_group_type_arz_ovb
       ARZ_BAF_SYMBOL = :bank_group_type_arz_baf
@@ -67,7 +67,7 @@ module Spree::PAYONE
       TRIODOS_BANK_SYMBOL = :bank_group_type_triodos_bank
       SNS_REGIO_BANK_SYMBOL = :bank_group_type_sns_regio_bank
       ING_BANK_SYMBOL = :bank_group_type_ing_bank
-      
+
       # Validates bank group type and returns PAYONE specific code.
       def self.validate(type)
         type = type.to_s.downcase
@@ -137,7 +137,7 @@ module Spree::PAYONE
           nil
         end
       end
-      
+
       # Validates bank group type and returns symbol.
       def self.validate_symbol(type)
         case self.validate(type)
@@ -207,7 +207,7 @@ module Spree::PAYONE
             return nil
         end
       end
-      
+
       # Returns all values array.
       def self.list()
         [self::ARZ_OVB, self::ARZ_BAF, self::ARZ_NLH, self::ARZ_VLH,
@@ -219,7 +219,7 @@ module Spree::PAYONE
          self::RABOBANK, self::FRIESLAND_BANK, self::ASN_BANK, self::SNS_BANK,
          self::TRIODOS_BANK, self::SNS_REGIO_BANK, self::ING_BANK]
       end
-      
+
       # Returns all values array for EPS.
       def self.eps_list()
         [self::ARZ_OVB, self::ARZ_BAF, self::ARZ_NLH, self::ARZ_VLH,
@@ -229,7 +229,7 @@ module Spree::PAYONE
          self::BAWAG_SPD, self::SPARDAT_EBS, self::SPARDAT_BBL, self::RAC_RAC,
          self::HRAC_OOS, self::HRAC_SLB, self::HRAC_STM]
       end
-      
+
       # Returns all values array for IDL.
       def self.idl_list()
         [self::ABN_AMRO_BANK, self::RABOBANK, self::FRIESLAND_BANK, self::ASN_BANK,

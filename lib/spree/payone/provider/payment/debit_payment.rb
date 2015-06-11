@@ -1,8 +1,8 @@
-# Provides implementation for Spree payment process logic for Spree::PaymentMethod::PAYONE::DebitPayment
-module Spree::PAYONE
+# Provides implementation for Spree payment process logic for Spree::PaymentMethod::Payone::DebitPayment
+module Spree::Payone
   module Provider
     module Payment
-      class DebitPayment < Spree::PAYONE::Provider::Payment::Base
+      class DebitPayment < Spree::Payone::Provider::Payment::Base
 
         # Sets initial data.
         def initialize(options)
@@ -11,9 +11,9 @@ module Spree::PAYONE
 
         # Proceses payment method authorize action.
         def authorize(money, debit_payment_source, payment_method_options = {})
-          Spree::PAYONE::Logger.info "Authorize process started"
+          Spree::Payone::Logger.info "Authorize process started"
 
-          request = Spree::PAYONE::Proxy::Request.new
+          request = Spree::Payone::Proxy::Request.new
           request.preauthorization_request
 
           set_initial_request_parameters(request)
@@ -30,9 +30,9 @@ module Spree::PAYONE
 
         # Proceses gateway purchase action.
         def purchase(money, debit_payment_source, payment_method_options = {})
-          Spree::PAYONE::Logger.info "Purchase process started"
+          Spree::Payone::Logger.info "Purchase process started"
 
-          request = Spree::PAYONE::Proxy::Request.new
+          request = Spree::Payone::Proxy::Request.new
           request.authorization_request
 
           set_initial_request_parameters(request)
@@ -49,9 +49,9 @@ module Spree::PAYONE
 
         # Proceses gateway capture action.
         def capture(money, response_code, payment_method_options = {})
-          Spree::PAYONE::Logger.info "Capture process started"
+          Spree::Payone::Logger.info "Capture process started"
 
-          request = Spree::PAYONE::Proxy::Request.new
+          request = Spree::Payone::Proxy::Request.new
           request.capture_request
 
           set_initial_request_parameters(request)
@@ -64,15 +64,15 @@ module Spree::PAYONE
 
         # Proceses gateway void action.
         def void(response_code, provider_source, gateway_options = {})
-          Spree::PAYONE::Logger.info "Void process started"
+          Spree::Payone::Logger.info "Void process started"
           payment_payment_provider_successful_response
         end
 
         # Proceses gateway credit action.
         def credit(money, response_code, gateway_options = {})
-          Spree::PAYONE::Logger.info "Credit process started"
+          Spree::Payone::Logger.info "Credit process started"
 
-          request = Spree::PAYONE::Proxy::Request.new
+          request = Spree::Payone::Proxy::Request.new
           request.debit_request
           set_initial_request_parameters(request)
           set_amount_request_parameters(request, '-' + money.to_s, gateway_options)

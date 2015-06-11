@@ -1,9 +1,9 @@
 # Spree payment method which covers PAYONE online bank transfer operations.
 #
-# Uses ::Spree::PaymentSource::PAYONE::OnlineBankTransfer for standard
+# Uses ::Spree::PaymentSource::Payone::OnlineBankTransfer for standard
 # Spree payment method action implementations.
 module Spree
-  class PaymentMethod::PAYONE::OnlineBankTransfer < PaymentMethod::PAYONE::PaymentMethod
+  class PaymentMethod::Payone::OnlineBankTransfer < PaymentMethod::Payone::PaymentMethod
 
     # Payment method preferences
     preference :online_bank_transfer_types, :string, :default => 'PNT'
@@ -15,12 +15,12 @@ module Spree
 
     # Returns provider class responsible for Spree payment method action implementations.
     def provider_class
-      ::Spree::PAYONE::Provider::Payment::OnlineBankTransfer
+      ::Spree::Payone::Provider::Payment::OnlineBankTransfer
     end
 
     # Returns payment source class.
     def payment_source_class
-      ::Spree::PaymentSource::PAYONE::PayoneOnlineBankTransferPaymentSource
+      ::Spree::PaymentSource::Payone::PayoneOnlineBankTransferPaymentSource
     end
 
     # Redefines method_type which allows to load correct partial template

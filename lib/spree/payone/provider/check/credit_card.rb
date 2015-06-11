@@ -1,8 +1,8 @@
 # Provides implementation for PAYONE creditcard check.
-module Spree::PAYONE
+module Spree::Payone
   module Provider
     module Check
-      class CreditCard < Spree::PAYONE::Provider::Base
+      class CreditCard < Spree::Payone::Provider::Base
 
         # Sets initial data.
         def initialize(options)
@@ -11,9 +11,9 @@ module Spree::PAYONE
 
         # Proceses check.
         def process(creditcard, options)
-          Spree::PAYONE::Logger.info "Creditcardcheck process started"
+          Spree::Payone::Logger.info "Creditcardcheck process started"
 
-          request = Spree::PAYONE::Proxy::Request.new
+          request = Spree::Payone::Proxy::Request.new
           request.creditcardcheck_request
 
           set_initial_request_parameters(request)
@@ -34,7 +34,7 @@ module Spree::PAYONE
 
         # Returns credit card type.
         def credit_card_type(creditcard)
-          type = Spree::PAYONE::Utils::CreditCardType.validate(creditcard.cc_type)
+          type = Spree::Payone::Utils::CreditCardType.validate(creditcard.cc_type)
           if type != nil
             return type
           else

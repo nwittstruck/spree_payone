@@ -1,5 +1,5 @@
 # Representation of raw PAYONE request.
-module Spree::PAYONE
+module Spree::Payone
   module Proxy
     class Request < ParameterContainer
 
@@ -182,28 +182,28 @@ module Spree::PAYONE
       parameter_value_accessor :invoice_clearingtype, :clearingtype, 'rec'
 
       # Specific values for :cardtype parameter
-      parameter_value_accessor :visa_cardtype, :cardtype, ::Spree::PAYONE::Utils::CreditCardType::VISA
-      parameter_value_accessor :mastercard_cardtype, :cardtype, ::Spree::PAYONE::Utils::CreditCardType::MASTERCARD
-      parameter_value_accessor :amex_cardtype, :cardtype, ::Spree::PAYONE::Utils::CreditCardType::AMEX
-      parameter_value_accessor :diners_cardtype, :cardtype, ::Spree::PAYONE::Utils::CreditCardType::DINERS
-      parameter_value_accessor :jbc_cardtype, :cardtype, ::Spree::PAYONE::Utils::CreditCardType::JBC
-      parameter_value_accessor :maestro_international_cardtype, :cardtype, ::Spree::PAYONE::Utils::CreditCardType::MAESTRO_INTERNATIONAL
-      parameter_value_accessor :discover_cardtype, :cardtype, ::Spree::PAYONE::Utils::CreditCardType::DISCOVER
-      parameter_value_accessor :carte_bleue_cardtype, :cardtype, ::Spree::PAYONE::Utils::CreditCardType::CARTE_BLEUE
+      parameter_value_accessor :visa_cardtype, :cardtype, ::Spree::Payone::Utils::CreditCardType::VISA
+      parameter_value_accessor :mastercard_cardtype, :cardtype, ::Spree::Payone::Utils::CreditCardType::MASTERCARD
+      parameter_value_accessor :amex_cardtype, :cardtype, ::Spree::Payone::Utils::CreditCardType::AMEX
+      parameter_value_accessor :diners_cardtype, :cardtype, ::Spree::Payone::Utils::CreditCardType::DINERS
+      parameter_value_accessor :jbc_cardtype, :cardtype, ::Spree::Payone::Utils::CreditCardType::JBC
+      parameter_value_accessor :maestro_international_cardtype, :cardtype, ::Spree::Payone::Utils::CreditCardType::MAESTRO_INTERNATIONAL
+      parameter_value_accessor :discover_cardtype, :cardtype, ::Spree::Payone::Utils::CreditCardType::DISCOVER
+      parameter_value_accessor :carte_bleue_cardtype, :cardtype, ::Spree::Payone::Utils::CreditCardType::CARTE_BLEUE
 
       # Specific values for :addresschecktype parameter
-      parameter_value_accessor :basic_addresschecktype, :addresschecktype, ::Spree::PAYONE::Utils::AddressCheckType::BASIC
-      parameter_value_accessor :person_addresschecktype, :addresschecktype, ::Spree::PAYONE::Utils::AddressCheckType::PERSON
-      parameter_value_accessor :no_addresschecktype, :addresschecktype, ::Spree::PAYONE::Utils::AddressCheckType::NO
+      parameter_value_accessor :basic_addresschecktype, :addresschecktype, ::Spree::Payone::Utils::AddressCheckType::BASIC
+      parameter_value_accessor :person_addresschecktype, :addresschecktype, ::Spree::Payone::Utils::AddressCheckType::PERSON
+      parameter_value_accessor :no_addresschecktype, :addresschecktype, ::Spree::Payone::Utils::AddressCheckType::NO
 
       # Specific values for :consumerscoretype parameter
-      parameter_value_accessor :ih_consumerscoretype, :consumerscoretype, ::Spree::PAYONE::Utils::ConsumerScoreType::IH
-      parameter_value_accessor :ia_consumerscoretype, :consumerscoretype, ::Spree::PAYONE::Utils::ConsumerScoreType::IA
-      parameter_value_accessor :ib_consumerscoretype, :consumerscoretype, ::Spree::PAYONE::Utils::ConsumerScoreType::IB
+      parameter_value_accessor :ih_consumerscoretype, :consumerscoretype, ::Spree::Payone::Utils::ConsumerScoreType::IH
+      parameter_value_accessor :ia_consumerscoretype, :consumerscoretype, ::Spree::Payone::Utils::ConsumerScoreType::IA
+      parameter_value_accessor :ib_consumerscoretype, :consumerscoretype, ::Spree::Payone::Utils::ConsumerScoreType::IB
 
       # Specific values for :storecarddata parameter
-      parameter_value_accessor :yes_storecarddata, :storecarddata, ::Spree::PAYONE::Utils::StoreCardData::YES
-      parameter_value_accessor :no_storecarddata, :storecarddata, ::Spree::PAYONE::Utils::StoreCardData::NO
+      parameter_value_accessor :yes_storecarddata, :storecarddata, ::Spree::Payone::Utils::StoreCardData::YES
+      parameter_value_accessor :no_storecarddata, :storecarddata, ::Spree::Payone::Utils::StoreCardData::NO
 
       # Sets initial data.
       def initialize
@@ -249,7 +249,7 @@ module Spree::PAYONE
         http_request.form_data = post_params
         http_request.basic_auth url.user, url.password if url.user
 
-        response = Spree::PAYONE::Proxy::Response.new
+        response = Spree::Payone::Proxy::Response.new
         connection = Net::HTTP.new(url.host, url.port)
         load_ca_file connection
         connection.use_ssl = true

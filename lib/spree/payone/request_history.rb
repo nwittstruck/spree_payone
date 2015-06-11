@@ -1,5 +1,5 @@
 # Provides simple request history functionallity based on PAYONE request history entries.
-module Spree::PAYONE
+module Spree::Payone
   class RequestHistory
     include Singleton
 
@@ -25,11 +25,11 @@ module Spree::PAYONE
     end
 
     def self.entry txid, request_type, status, overall_status, success_token, back_token, error_token, payment_id = nil
-      Spree::PAYONE::RequestHistory.instance.entry txid, request_type, status, overall_status, success_token, back_token, error_token, payment_id
+      Spree::Payone::RequestHistory.instance.entry txid, request_type, status, overall_status, success_token, back_token, error_token, payment_id
     end
 
     def self.count_overall_status_by_txid txid
-      Spree::PAYONE::RequestHistory.instance.count_overall_status_by_txid txid
+      Spree::Payone::RequestHistory.instance.count_overall_status_by_txid txid
     end
   end
 end

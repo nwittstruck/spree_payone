@@ -1,5 +1,5 @@
 # Container for bank country values.
-module Spree::PAYONE
+module Spree::Payone
   module Utils
     class BankCountry
       # Bank country values
@@ -7,13 +7,13 @@ module Spree::PAYONE
       AT = 'AT'
       NL = 'NL'
       CH = 'CH'
-      
+
       # Bank country symbol values
       DE_SYMBOL = :bank_country_de
       AT_SYMBOL = :bank_country_at
       NL_SYMBOL = :bank_country_nl
       CH_SYMBOL = :bank_country_ch
-      
+
       # Validates bank country and returns PAYONE specific code.
       def self.validate(type)
         type = type.to_s.downcase
@@ -29,7 +29,7 @@ module Spree::PAYONE
           nil
         end
       end
-      
+
       # Validates bank country and returns symbol.
       def self.validate_symbol(type)
         case self.validate(type)
@@ -45,7 +45,7 @@ module Spree::PAYONE
             return nil
         end
       end
-      
+
       # Returns all values array
       def self.list()
         [self::DE, self::AT, self::NL, self::CH]

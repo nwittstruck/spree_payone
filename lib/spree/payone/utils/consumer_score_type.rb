@@ -1,17 +1,17 @@
 # Container for consumer score type values.
-module Spree::PAYONE
+module Spree::Payone
   module Utils
     class ConsumerScoreType
       # Consumer score type values
       IH = 'IH'
       IA = 'IA'
       IB = 'IB'
-      
+
       # Consumer score type symbol values
       IH_SYMBOL = :consumer_score_type_ih
       IA_SYMBOL = :consumer_score_type_ia
       IB_SYMBOL = :consumer_score_type_ib
-      
+
       # Validates consumer score type and returns PAYONE specific code.
       def self.validate(type)
         type = type.to_s.downcase
@@ -25,7 +25,7 @@ module Spree::PAYONE
           nil
         end
       end
-      
+
       # Validates consumer score type and returns symbol.
       def self.validate_symbol(type)
         case self.validate(type)
@@ -39,7 +39,7 @@ module Spree::PAYONE
             return nil
         end
       end
-      
+
       # Returns all values array.
       def self.list()
         [self::IH, self::IA, self::IB]

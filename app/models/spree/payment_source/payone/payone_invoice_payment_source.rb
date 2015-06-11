@@ -1,7 +1,7 @@
 # Spree payment method source for PAYONE invoice.
 module Spree
   module PaymentSource
-    module PAYONE
+    module Payone
       class PayoneInvoicePaymentSource < ActiveRecord::Base
         has_many :payments, :as => :source
 

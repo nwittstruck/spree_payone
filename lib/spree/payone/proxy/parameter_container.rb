@@ -1,5 +1,5 @@
 # Responsible for parameters storage and auto-generation of parameter getters/setters.
-module Spree::PAYONE
+module Spree::Payone
   module Proxy
     class ParameterContainer
       # Generates accessors for parameters.

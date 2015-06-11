@@ -1,5 +1,5 @@
 # Container for online bank transfer type values.
-module Spree::PAYONE
+module Spree::Payone
   module Utils
     class OnlineBankTransferType
       # Online bank transfer type values
@@ -9,7 +9,7 @@ module Spree::PAYONE
       POSTFINANCE_E_FINANCE = 'PFF'
       POSTFINANCE_CARD = 'PFC'
       IDEAL = 'IDL'
-      
+
       # Online bank transfer type symbol values
       INSTANT_MONEY_TRANSFER_SYMBOL = :online_bank_transfer_type_instant_money_transfer
       GIROPAY_SYMBOL = :online_bank_transfer_type_giropay
@@ -17,7 +17,7 @@ module Spree::PAYONE
       POSTFINANCE_E_FINANCE_SYMBOL = :online_bank_transfer_type_postfinance_e_finance
       POSTFINANCE_CARD_SYMBOL = :online_bank_transfer_type_postfinance_card
       IDEAL_SYMBOL = :online_bank_transfer_type_ideal
-      
+
       # Validates Online bank transfer type and returns PAYONE specific code.
       def self.validate(type)
         type = type.to_s.downcase
@@ -37,7 +37,7 @@ module Spree::PAYONE
           nil
         end
       end
-      
+
       # Validates Online bank transfer type and returns symbol.
       def self.validate_symbol(type)
         case self.validate(type)
@@ -57,7 +57,7 @@ module Spree::PAYONE
             return nil
         end
       end
-      
+
       # Validates Online bank transfer type and returns symbol.
       def self.validate_online_bank_transfer_type_country(type, country)
         country = country.to_s.upcase
@@ -78,7 +78,7 @@ module Spree::PAYONE
             return false
         end
       end
-      
+
       # Returns all values array.
       def self.list()
         [self::INSTANT_MONEY_TRANSFER, self::GIROPAY, self::ONLINE_TRANSFER,

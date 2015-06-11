@@ -1,5 +1,5 @@
 # Container for credit card type values.
-module Spree::PAYONE
+module Spree::Payone
   module Utils
     class CreditCardType
       # Credit card type values
@@ -11,7 +11,7 @@ module Spree::PAYONE
       MAESTRO_INTERNATIONAL = 'O'
       DISCOVER = 'C'
       CARTE_BLEUE = 'B'
-      
+
       # Credit card type symbol values
       VISA_SYMBOL = :credit_card_type_visa
       MASTERCARD_SYMBOL = :credit_card_type_mastercard
@@ -21,7 +21,7 @@ module Spree::PAYONE
       MAESTRO_INTERNATIONAL_SYMBOL = :credit_card_type_maestro_international
       DISCOVER_SYMBOL = :credit_card_type_discover
       CARTE_BLEUE_SYMBOL = :credit_card_type_carte_bleue
-      
+
       # Validates credit card type and returns PAYONE specific code.
       def self.validate(type)
         type = type.to_s.downcase
@@ -45,7 +45,7 @@ module Spree::PAYONE
           nil
         end
       end
-      
+
       # Validates credit card type and returns symbol.
       def self.validate_symbol(type)
         case self.validate(type)
@@ -69,7 +69,7 @@ module Spree::PAYONE
             return nil
         end
       end
-      
+
       # Returns all values array.
       def self.list()
         [self::VISA, self::MASTERCARD, self::AMEX, self::DINERS, self::JBC,

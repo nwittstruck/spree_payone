@@ -1,5 +1,5 @@
 # Container for person status values.
-module Spree::PAYONE
+module Spree::Payone
   module Utils
     class PersonStatus
       # Person status values
@@ -11,7 +11,7 @@ module Spree::PAYONE
       PNZ  = 'PNZ'
       PPV  = 'PPV'
       PPF  = 'PPF'
-      
+
       # Person status symbol values
       NONE_SYMBOL = :person_status_none
       PPB_SYMBOL  = :person_status_ppb
@@ -21,7 +21,7 @@ module Spree::PAYONE
       PNZ_SYMBOL  = :person_status_pnz
       PPV_SYMBOL  = :person_status_ppv
       PPF_SYMBOL  = :person_status_ppf
-      
+
       # Validates person status and returns PAYONE specific code.
       def self.validate(type)
         type = type.to_s.downcase
@@ -45,7 +45,7 @@ module Spree::PAYONE
           nil
         end
       end
-      
+
       # Validates person status and returns symbol.
       def self.validate_symbol(type)
         case self.validate(type)
@@ -69,7 +69,7 @@ module Spree::PAYONE
             return nil
         end
       end
-      
+
       # Returns all values array.
       def self.list()
         [self::NONE, self::PPB, self::PHB, self::PAB, self::PKI, self::PNZ, self::PPV, self::PPF]

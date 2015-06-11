@@ -3,7 +3,7 @@
 # This class must not be instantiate. It is used to gather all common settings
 # for Spree PAYONE payment method.
 module Spree
-  class PaymentMethod::PAYONE::PaymentMethod < PaymentMethod
+  class PaymentMethod::Payone::PaymentMethod < PaymentMethod
     delegate_belongs_to :provider, :authorize, :purchase, :capture, :void, :credit
 
     # Payment method preferences

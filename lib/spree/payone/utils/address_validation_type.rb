@@ -1,17 +1,17 @@
 # Container for address validation type values.
-module Spree::PAYONE
+module Spree::Payone
   module Utils
     class AddressValidationType
       # Address validation type values
       ADDRESSCHECK = 'addresscheck'
       CONSUMERSCORE = 'consumerscore'
       NONE = 'none'
-      
+
       # Address validation type symbol values
       ADDRESSCHECK_SYMBOL = :address_validation_type_address_check
       CONSUMERSCORE_SYMBOL = :address_validation_type_consumer_score
       NONE_SYMBOL = :address_validation_type_none
-      
+
       # Validates address validation type and returns specific code.
       def self.validate(type)
         type = type.to_s.downcase
@@ -25,7 +25,7 @@ module Spree::PAYONE
           nil
         end
       end
-      
+
       # Validates address validation type and returns symbol.
       def self.validate_symbol(type)
         case self.validate(type)
@@ -39,7 +39,7 @@ module Spree::PAYONE
             return nil
         end
       end
-      
+
       # Returns all values array.
       def self.list()
         [self::ADDRESSCHECK, self::CONSUMERSCORE, self::NONE]

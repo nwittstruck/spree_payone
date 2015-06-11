@@ -1,9 +1,9 @@
 # Spree gateway which covers PAYONE credit card operations.
 #
-# Uses ::Spree::PAYONE::Provider::Payment::CreditCard for standard
+# Uses ::Spree::Payone::Provider::Payment::CreditCard for standard
 # Spree gateway action implementations.
 module Spree
-  class Gateway::PAYONE::CreditCard < Gateway
+  class Gateway::Payone::CreditCard < Gateway
 
     # Gateway preferences
     preference :use_global_account_settings, :boolean, :default => true
@@ -22,7 +22,7 @@ module Spree
 
     # Returns provider class responsible for Spree gateway action implementations.
     def provider_class
-      ::Spree::PAYONE::Provider::Payment::CreditCard
+      ::Spree::Payone::Provider::Payment::CreditCard
     end
 
     # Returns payment source class.
@@ -41,7 +41,7 @@ module Spree
 
       # Process creditcardcheck and retrieve profile id
       if creditcard.gateway_customer_profile_id.nil?
-        creditCardCheck = ::Spree::PAYONE::Provider::Check::CreditCard.new(method.options)
+        creditCardCheck = ::Spree::Payone::Provider::Check::CreditCard.new(method.options)
         response = creditCardCheck.process payment.source, {}
 
         if response.valid_status?

@@ -4,13 +4,13 @@ module SpreePayone
 
     initializer "spree_payone.register.payment_methods", after: 'spree.register.payment_methods' do |app|
       app.config.spree.payment_methods += [
-        Spree::Gateway::PAYONE::CreditCard,
-        Spree::PaymentMethod::PAYONE::OnlineBankTransfer,
-        Spree::PaymentMethod::PAYONE::DebitPayment,
-        Spree::PaymentMethod::PAYONE::EWallet,
-        Spree::PaymentMethod::PAYONE::CashOnDelivery,
-        Spree::PaymentMethod::PAYONE::CashInAdvance,
-        Spree::PaymentMethod::PAYONE::Invoice
+        Spree::Gateway::Payone::CreditCard,
+        Spree::PaymentMethod::Payone::OnlineBankTransfer,
+        Spree::PaymentMethod::Payone::DebitPayment,
+        Spree::PaymentMethod::Payone::EWallet,
+        Spree::PaymentMethod::Payone::CashOnDelivery,
+        Spree::PaymentMethod::Payone::CashInAdvance,
+        Spree::PaymentMethod::Payone::Invoice
       ]
     end
 

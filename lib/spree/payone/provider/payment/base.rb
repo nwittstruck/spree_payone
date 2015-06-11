@@ -1,39 +1,39 @@
 # Provides basic communication channel between PAYONE and Spree payment process logic.
-module Spree::PAYONE
+module Spree::Payone
   module Provider
     module Payment
-      class Base < Spree::PAYONE::Provider::Base
-        
+      class Base < Spree::Payone::Provider::Base
+
         # Sets initial data.
         def initialize(options)
           super(options)
           @currency_code = options[:currency_code]
         end
-        
+
         # Sets amount parameters.
         def set_amount_request_parameters(request, amount, gateway_options)
           request.amount= amount.to_i
-          
+
           # Note: if :currency_code preference is available for payment_method/gateway
           # Spree automatically adds its value to gateway_options under :currency key.
           # Of course we can set this value traditionally using payment_method/gateway preference.
           # request.currency= gateway_options[:currency]
           request.currency= @currency_code
         end
-        
+
         # Sets order parameters.
         def set_order_request_parameters(request, gateway_options)
           # Order id already containts appendix responsible for payment id
           request.reference= gateway_options[:order_id].to_s
         end
-        
+
         # Sets personal parameters.
         def set_personal_data_request_parameters(request, gateway_options)
           request.email= gateway_options[:email]
           request.telephonenumber= gateway_options[:billing_address][:phone] # We may send only one phone number
           # request.ip= gateway_options[:ip]
         end
-        
+
         # Sets billing parameters.
         def set_billing_request_parameters(request, gateway_options)
           # Spree supports also name parameter for merged first and last name
@@ -48,7 +48,7 @@ module Spree::PAYONE
             request.state= gateway_options[:billing_address][:state]
           end
         end
-        
+
         # Sets shipping parameters.
         def set_shipping_request_parameters(request, gateway_options)
           # Spree supports also :name parameter for merged first and last name
@@ -62,21 +62,21 @@ module Spree::PAYONE
             request.shipping_state= gateway_options[:shipping_address][:state]
           end
         end
-        
+
         # Sets payment process parameters.
         def set_payment_process_parameters(request, response_code)
           request.txid= response_code
         end
-        
+
         # Sets sequence request parameters.
         def set_sequence_request_parameters(request, response_code)
-          request.sequencenumber= Spree::PAYONE::RequestHistory.count_overall_status_by_txid response_code
+          request.sequencenumber= Spree::Payone::RequestHistory.count_overall_status_by_txid response_code
         end
-        
+
         # Sets status (success/error/back) url parameters.
         def set_status_url_request_parameters(request, gateway_options)
           if gateway_options[:admin_created].to_s == 'true'
-            request.successurl= 
+            request.successurl=
               Spree::Core::Engine.routes.url_helpers.payone_success_admin_order_payment_url(
                 gateway_options[:order_id],
                 gateway_options[:payment_id],
@@ -84,8 +84,8 @@ module Spree::PAYONE
                 :token => gateway_options[:order_token],
                 :action_token => success_token
               )
-            
-            request.errorurl= 
+
+            request.errorurl=
               Spree::Core::Engine.routes.url_helpers.payone_error_admin_order_payment_url(
                 gateway_options[:order_id],
                 gateway_options[:payment_id],
@@ -93,8 +93,8 @@ module Spree::PAYONE
                 :token => gateway_options[:order_token],
                 :action_token => error_token
             )
-            
-            request.backurl= 
+
+            request.backurl=
               Spree::Core::Engine.routes.url_helpers.payone_back_admin_order_payment_url(
                 gateway_options[:order_id],
                 gateway_options[:payment_id],
@@ -103,7 +103,7 @@ module Spree::PAYONE
                 :action_token => back_token
               )
           else
-            request.successurl= 
+            request.successurl=
               Spree::Core::Engine.routes.url_helpers.payone_success_order_checkout_url(
                 gateway_options[:order_id],
                 :host => Spree::Config[:payone_engine_host],
@@ -111,8 +111,8 @@ module Spree::PAYONE
                 :action_token => success_token,
                 :payment_id => gateway_options[:payment_id]
               )
-            
-            request.errorurl= 
+
+            request.errorurl=
               Spree::Core::Engine.routes.url_helpers.payone_error_order_checkout_url(
                 gateway_options[:order_id],
                 :host => Spree::Config[:payone_engine_host],
@@ -120,8 +120,8 @@ module Spree::PAYONE
                 :action_token => error_token,
                 :payment_id => gateway_options[:payment_id]
             )
-            
-            request.backurl= 
+
+            request.backurl=
               Spree::Core::Engine.routes.url_helpers.payone_back_order_checkout_url(
                 gateway_options[:order_id],
                 :host => Spree::Config[:payone_engine_host],
@@ -131,42 +131,42 @@ module Spree::PAYONE
               )
           end
         end
-        
+
         # Proceses authorize action.
         # Note: Override this method. Currently not supported.
         def authorize(money, provider_source, gateway_options = {})
-          Spree::PAYONE::Logger.info "Authorize process started"
+          Spree::Payone::Logger.info "Authorize process started"
           payment_payment_provider_response_not_supported 'authorize'
         end
-        
+
         # Proceses gateway purchase action.
         # Note: Override this method. Currently not supported.
         def purchase(money, provider_source, gateway_options = {})
-          Spree::PAYONE::Logger.info "Purchase process started"
+          Spree::Payone::Logger.info "Purchase process started"
           payment_payment_provider_response_not_supported 'purchase'
         end
-        
+
         # Proceses capture action.
         # Note: Override this method. Currently not supported.
         def capture(money, response_code, gateway_options = {})
-          Spree::PAYONE::Logger.info "Capture process started"
+          Spree::Payone::Logger.info "Capture process started"
           payment_payment_provider_response_not_supported 'capture'
         end
-        
+
         # Proceses void action.
         # Note: Override this method. Currently not supported.
         def void(response_code, provider_source, gateway_options = {})
-          Spree::PAYONE::Logger.info "Void process started"
+          Spree::Payone::Logger.info "Void process started"
           payment_payment_provider_response_not_supported 'void'
         end
-        
+
         # Proceses credit action.
         # Note: Override this method. Currently not supported.
         def credit(money, provider_source, response_code, gateway_options = {})
-          Spree::PAYONE::Logger.info "Credit process started"
+          Spree::Payone::Logger.info "Credit process started"
           payment_payment_provider_response_not_supported 'credit'
         end
-        
+
         # Returns payment provider response object (based on ActiveMerchant response) based on data stored in PAYONE response object.
         def payment_provider_response(response)
           if response.approved?
@@ -199,23 +199,23 @@ module Spree::PAYONE
               :customermessage => response.customermessage
             }
           end
-          
+
           if state == :success || state == :redirect
-            Spree::PAYONE::Logger.info message + ': ' + options.to_s
+            Spree::Payone::Logger.info message + ': ' + options.to_s
           else
-            Spree::PAYONE::Logger.error message + ': ' + options.to_s
+            Spree::Payone::Logger.error message + ': ' + options.to_s
           end
-          
-          Spree::PAYONE::Provider::Payment::Response.new(state, message, {}, options, response_messages)
+
+          Spree::Payone::Provider::Payment::Response.new(state, message, {}, options, response_messages)
         end
-        
+
         # Returns payment provider response object for not supported action.
         def payment_payment_provider_response_not_supported(action_name)
           message = 'PAYONE payment provider response failure. Action [' + action_name.to_s + '] not supported'
-          Spree::PAYONE::Logger.error message
-          Spree::PAYONE::Provider::Payment::Response.new(false, message, {}, {}, {})
+          Spree::Payone::Logger.error message
+          Spree::Payone::Provider::Payment::Response.new(false, message, {}, {}, {})
         end
-        
+
         # Returns fake successful payment provider response object.
         def payment_payment_provider_successful_response
             message = 'PAYONE payment provider response success'
@@ -225,7 +225,7 @@ module Spree::PAYONE
               # :avs_result N/A
               # :cvv_result N/A
             }
-          Spree::PAYONE::Provider::Payment::Response.new(true, message, {}, options, {})
+          Spree::Payone::Provider::Payment::Response.new(true, message, {}, options, {})
         end
       end
     end

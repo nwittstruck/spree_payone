@@ -46,16 +46,16 @@
       Um über die Schnittstelle zu PAYONE Verkäufe abwickeln zu können, stehen Ihnen unter "Konfiguration -&gt; Zahlungsmethoden"  (Configuration &gt; Payment Methods) folgende Methoden zur Verfügung:
     </p>
     <ol>
-      <li><a href="#credit">Kreditkarte (Spree::Gateway::PAYONE::CreditCard)</a></li>
-      <li><a href="#advance">Vorkasse (Spree::PaymentMethod::PAYONE::CashInAdvance)</a></li>
-      <li><a href="#delivery">Per Nachname (Spree::PaymentMethod::PAYONE::CashOnDelivery)</a></li>
-      <li><a href="#online">Online Überweisung (Spree::PaymentMethod::PAYONE::OnlineBankTransfer)</a></li>
-      <li><a href="#debit">Kontobasierte Zahlungsarten (Spree::PaymentMethod::PAYONE::DebitPayment)</a></li>
-      <li><a href="#ewallet">E-Wallet (Spree::PaymentMethod::PAYONE::EWallet)</a></li>
-      <li><a href="#invoice">Rechnung (Spree::PaymentMethod::PAYONE::Invoice)</a></li>
+      <li><a href="#credit">Kreditkarte (Spree::Gateway::Payone::CreditCard)</a></li>
+      <li><a href="#advance">Vorkasse (Spree::PaymentMethod::Payone::CashInAdvance)</a></li>
+      <li><a href="#delivery">Per Nachname (Spree::PaymentMethod::Payone::CashOnDelivery)</a></li>
+      <li><a href="#online">Online Überweisung (Spree::PaymentMethod::Payone::OnlineBankTransfer)</a></li>
+      <li><a href="#debit">Kontobasierte Zahlungsarten (Spree::PaymentMethod::Payone::DebitPayment)</a></li>
+      <li><a href="#ewallet">E-Wallet (Spree::PaymentMethod::Payone::EWallet)</a></li>
+      <li><a href="#invoice">Rechnung (Spree::PaymentMethod::Payone::Invoice)</a></li>
     </ol>
 
-    <strong id="credit">1. Kreditkarte (PAYONE::CreditCard)</strong>
+    <strong id="credit">1. Kreditkarte (Payone::CreditCard)</strong>
     <p>
       Mit dieser Methode können verschiedene Kreditkartenarten angeboten werden. Um mehrere Arten gleichzeitig anzubieten, legen Sie die Methode bitte mehrfach mit unterschiedlichen Einstellungen an.
       In dem Feld "Credit Card Type" können Sie bestimmen, welcher Kartentyp aktzeptiert werden soll.
@@ -74,10 +74,10 @@
       Für MasterCard, Visa und JCB sind 3D-Secure-Karten automatisch mit abgedeckt.
     </p>
 
-    <strong id="advance">2. Vorkasse (PAYONE::CashInAdvance)</strong>
+    <strong id="advance">2. Vorkasse (Payone::CashInAdvance)</strong>
     <p></p>
 
-    <strong id="delivery">3. Per Nachname (PAYONE::CashOnDelivery)</strong>
+    <strong id="delivery">3. Per Nachname (Payone::CashOnDelivery)</strong>
     <p>
       Diese Bezahlmethode ist an den Versand gebunden. Um Sie benutzen zu können müssen Sie die Ware mit folgenden Dienstleistern versenden:
     </p>
@@ -86,7 +86,7 @@
       <li>BRT (Bartolini) für Italien</li>
     </ul>
 
-    <strong id="online">4. Online Überweisung (PAYONE::OnlineBankTransfer)</strong>
+    <strong id="online">4. Online Überweisung (Payone::OnlineBankTransfer)</strong>
     <p>
       Mit dieser Methode können verschiedene Anbieter für Onlineüberweisungen angeboten werden. Um mehrere Arten gleichzeitig anzubieten, legen Sie die   Methode bitte mehrfach mit unterschiedlichen Einstellungen an.
       In dem Feld "Bank" können Sie bestimmen, welcher Kartentyp aktzeptiert werden soll.
@@ -103,17 +103,17 @@
       Die Länderkürzel in Klammern geben an in welchen Regionen diesen Kartentypen unterstützen.
     </p>
 
-    <strong id="debit">5. Kontobasierte Zahlungsarten (PAYONE::DebitPayment)</strong>
+    <strong id="debit">5. Kontobasierte Zahlungsarten (Payone::DebitPayment)</strong>
     <p>
       Elektronisches Lastschriftverfahren über IBAN und BIC des Kunden.
     </p>
 
-    <strong id="ewallet">6. E-Wallet (PAYONE::EWallet)</strong>
+    <strong id="ewallet">6. E-Wallet (Payone::EWallet)</strong>
     <ul>
       <li>PayPal: PPE</li>
     </ul>
 
-    <strong id="invoice">7. Rechnung (Spree::PaymentMethod::PAYONE::Invoice)</strong>
+    <strong id="invoice">7. Rechnung (Spree::PaymentMethod::Payone::Invoice)</strong>
     <p></p>
   </div>
 </div>

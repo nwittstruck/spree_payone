@@ -1,17 +1,17 @@
 # Container for sec status values.
-module Spree::PAYONE
+module Spree::Payone
   module Utils
     class SecStatus
       # Second status values
       S10 = '10'
       S20 = '20'
       S30 = '30'
-      
+
       # Second status symbol values
       S10_SYMBOL = :sec_status_s10
       S20_SYMBOL = :sec_status_s20
       S30_SYMBOL = :sec_status_s30
-      
+
       # Validates second status and returns PAYONE specific code.
       def self.validate(type)
         type = type.to_s.downcase
@@ -25,7 +25,7 @@ module Spree::PAYONE
           nil
         end
       end
-      
+
       # Validates second status and returns symbol.
       def self.validate_symbol(type)
         case self.validate(type)
@@ -39,7 +39,7 @@ module Spree::PAYONE
             return nil
         end
       end
-      
+
       # Returns all values array.
       def self.list()
         [self::S10, self::S20, self::S30]

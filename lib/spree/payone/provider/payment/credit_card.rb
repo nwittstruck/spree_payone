@@ -1,8 +1,8 @@
-# Provides implementation for Spree payment process logic for Spree::Gateway::PAYONE::CreditCard
-module Spree::PAYONE
+# Provides implementation for Spree payment process logic for Spree::Gateway::Payone::CreditCard
+module Spree::Payone
   module Provider
     module Payment
-      class CreditCard < Spree::PAYONE::Provider::Payment::Base
+      class CreditCard < Spree::Payone::Provider::Payment::Base
 
         # Sets initial data.
         def initialize(options)
@@ -11,9 +11,9 @@ module Spree::PAYONE
 
         # Proceses gateway authorize action.
         def authorize(money, creditcard, gateway_options = {})
-          Spree::PAYONE::Logger.info "Authorize process started"
+          Spree::Payone::Logger.info "Authorize process started"
 
-          request = Spree::PAYONE::Proxy::Request.new
+          request = Spree::Payone::Proxy::Request.new
           request.preauthorization_request
 
           set_initial_request_parameters(request)
@@ -31,9 +31,9 @@ module Spree::PAYONE
 
         # Proceses gateway purchase action.
         def purchase(money, creditcard, gateway_options = {})
-          Spree::PAYONE::Logger.info "Purchase process started"
+          Spree::Payone::Logger.info "Purchase process started"
 
-          request = Spree::PAYONE::Proxy::Request.new
+          request = Spree::Payone::Proxy::Request.new
           request.authorization_request
 
           set_initial_request_parameters(request)
@@ -51,9 +51,9 @@ module Spree::PAYONE
 
         # Proceses gateway capture action.
         def capture(money, response_code, gateway_options = {})
-          Spree::PAYONE::Logger.info "Capture process started"
+          Spree::Payone::Logger.info "Capture process started"
 
-          request = Spree::PAYONE::Proxy::Request.new
+          request = Spree::Payone::Proxy::Request.new
           request.capture_request
 
           # For credit card with profile support
@@ -75,15 +75,15 @@ module Spree::PAYONE
 
         # Proceses gateway void action.
         def void(response_code, provider_source, gateway_options = {})
-          Spree::PAYONE::Logger.info "Void process started"
+          Spree::Payone::Logger.info "Void process started"
           payment_payment_provider_successful_response
         end
 
         # Proceses gateway credit action.
         def credit(money, provider_source, response_code, gateway_options = {})
-          Spree::PAYONE::Logger.info "Credit process started"
+          Spree::Payone::Logger.info "Credit process started"
 
-          request = Spree::PAYONE::Proxy::Request.new
+          request = Spree::Payone::Proxy::Request.new
           request.debit_request
           set_initial_request_parameters(request)
           set_amount_request_parameters(request, '-' + money.to_s, gateway_options)
@@ -116,7 +116,7 @@ module Spree::PAYONE
         # Spree::CreditCard::CardDetector.type?(number) function to detect type.
         # Below type check is based on creditcard preference previously set.
         def credit_card_type(creditcard)
-          type = Spree::PAYONE::Utils::CreditCardType.validate(creditcard.cc_type)
+          type = Spree::Payone::Utils::CreditCardType.validate(creditcard.cc_type)
           if type != nil
             return type
           else

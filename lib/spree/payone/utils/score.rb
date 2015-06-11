@@ -1,22 +1,22 @@
 # Container for score values.
-module Spree::PAYONE
+module Spree::Payone
   module Utils
     class Score
       # Score values
       GREEN  = 'G'
       YELLOW = 'Y'
       RED    = 'R'
-      
+
       # Score symbol values
       GREEN_SYMBOL  = :score_green
       YELLOW_SYMBOL = :score_yellow
       RED_SYMBOL    = :score_red
-      
+
       # Score symbol integer values
       GREEN_INT  = 0
       YELLOW_INT = 1
       RED_INT    = 2
-      
+
       # Validates person status and returns PAYONE specific code.
       def self.validate(type)
         type = type.to_s.downcase
@@ -30,7 +30,7 @@ module Spree::PAYONE
           nil
         end
       end
-      
+
       # Validates score and returns symbol.
       def self.validate_symbol(type)
         case self.validate(type)
@@ -44,7 +44,7 @@ module Spree::PAYONE
             return nil
         end
       end
-      
+
       # Returns integer from score value.
       def self.to_i(type)
         case self.validate(type)
@@ -58,7 +58,7 @@ module Spree::PAYONE
             return nil
         end
       end
-      
+
       # Returns score value from integer.
       def self.to_value(i)
         case i
@@ -72,18 +72,18 @@ module Spree::PAYONE
             return nil
         end
       end
-      
+
       # Gets lower score from list.
       def self.lower_score(score_a, score_b)
         score_int_a = self.to_i score_a
         score_int_b = self.to_i score_b
         score_int_a ||= self::RED_INT
         score_int_b ||= self::RED_INT
-        
+
         score_int_lower = score_int_a > score_int_b ? score_int_a : score_int_b
         return self.to_value(score_int_lower)
       end
-      
+
       # Returns all values array.
       def self.list()
         [self::GREEN, self::YELLOW, self::RED]

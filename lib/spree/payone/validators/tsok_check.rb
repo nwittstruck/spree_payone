@@ -1,21 +1,21 @@
 # Provides implementation for PAYONE TSOK validation.
-module Spree::PAYONE
+module Spree::Payone
   module Validators
     class TsokCheck
       def initialize request
         @request = request
       end
-      
+
       def tsok_request?
         if @request.post? and valid_ip?
           true
         end
       end
-      
+
       def valid_tsok_request?
         true
       end
-      
+
       def valid_ip?
         ip = @request.ip.to_s
         if ip =~ /^213.178.72.196$/ or

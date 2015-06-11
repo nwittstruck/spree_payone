@@ -1,5 +1,5 @@
 # Representation of raw PAYONE response.
-module Spree::PAYONE
+module Spree::Payone
   module Proxy
     class Response < ParameterContainer
 

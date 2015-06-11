@@ -1,6 +1,6 @@
 # Provides simple logging functionallity based on standard logger and add additional
 # operations on PAYONE logs.
-module Spree::PAYONE
+module Spree::Payone
   class Logger
     include Singleton
 
@@ -62,27 +62,27 @@ module Spree::PAYONE
 
     # Logs debug message.
     def self.debug message
-      Spree::PAYONE::Logger.instance.debug message
+      Spree::Payone::Logger.instance.debug message
     end
 
     # Logs error message.
     def self.error message
-      Spree::PAYONE::Logger.instance.error message
+      Spree::Payone::Logger.instance.error message
     end
 
     # Logs fatal message.
     def self.fatal message
-      Spree::PAYONE::Logger.instance.fatal message
+      Spree::Payone::Logger.instance.fatal message
     end
 
     # Logs info message.
     def self.info message
-      Spree::PAYONE::Logger.instance.info message
+      Spree::Payone::Logger.instance.info message
     end
 
     # Logs warn message.
     def self.warn message
-      Spree::PAYONE::Logger.instance.warn message
+      Spree::Payone::Logger.instance.warn message
     end
   end
 end
