@@ -18,7 +18,7 @@
     <tr>
       <td><%= label_tag nil, t(:card_holder) %>:</td>
       <td>
-        <%= payment.source.card_holder %>
+        <%= payment.source.name %>
       </td>
       <td><%= label_tag nil, t(:card_type) %>:</td>
       <td>
@@ -27,4 +27,3 @@
     </tr>
   </table>
 </fieldset>
-

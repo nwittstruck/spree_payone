@@ -52,7 +52,7 @@
     </div>
     <div data-hook="card_holder">
       <%= label_tag nil, t(:card_holder) %><br />
-      <%= text_field_tag "#{param_prefix}[card_holder]", @order.billing_firstname.to_s + ' ' + @order.billing_lastname.to_s, :class => 'required' %>
+      <%= text_field_tag "#{param_prefix}[name]", @order.billing_firstname.to_s + ' ' + @order.billing_lastname.to_s, :class => 'required' %>
       <span class="req">*</span>
     </div>
   </div>
