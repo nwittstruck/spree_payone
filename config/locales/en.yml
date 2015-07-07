@@ -201,6 +201,8 @@ en:
         payone_logs: Logs
         payone_settings: Settings
         payone_docs: Documentation
+    order_state:
+      payment_redirect: "Confirmation"
 
   activerecord:
     models:

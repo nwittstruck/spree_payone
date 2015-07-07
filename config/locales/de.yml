@@ -201,6 +201,8 @@ de:
         payone_logs: "Protokolle"
         payone_settings: Einstellungen
         payone_docs: Dokumentation
+    order_state:
+      payment_redirect: "Bestätigung"
 
   activerecord:
     models:
